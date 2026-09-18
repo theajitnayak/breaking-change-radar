@@ -1,0 +1,15 @@
+{
+  "id": "openai-assistants-api-removal",
+  "vendor": "OpenAI",
+  "kind": "removal",
+  "direction": "neutral",
+  "date": "2026-08-26",
+  "effective": "2026-08-26",
+  "title": "The Assistants API was removed; Responses API is the only path",
+  "detail": "Teams on the Assistants API must migrate to the Responses API. Threads, runs and the assistant object have no drop-in equivalent.",
+  "impact": "A rewrite of the orchestration layer, not a model swap. If you have not migrated, this is already broken rather than pending.",
+  "confidence": "verified",
+  "sources": [
+    { "url": "https://developers.openai.com/api/docs/deprecations", "published": "2026-08-26" }
+  ]
+}

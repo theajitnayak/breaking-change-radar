@@ -1,0 +1,160 @@
+{
+  "schema": 1,
+  "scope": "Pricing, credit, quota and removal changes in AI coding tools and the model APIs they bill through.",
+  "updated": "2026-09-19",
+  "items": [
+    {
+      "id": "openai-gpt5-o3-snapshot-removal",
+      "vendor": "OpenAI",
+      "kind": "removal",
+      "direction": "neutral",
+      "date": "2026-09-12",
+      "effective": "2026-12-11",
+      "title": "GPT-5 and o3 model snapshots are removed from the API on December 11",
+      "detail": "Older GPT-5 and o3 snapshots were given notice of removal from the API. Pinned snapshot IDs do not roll forward to a successor.",
+      "impact": "If you pinned an older snapshot to keep output stable, the call stops resolving on that date rather than silently upgrading. Budget a migration and an eval pass before December.",
+      "confidence": "verified",
+      "sources": [
+        { "url": "https://developers.openai.com/api/docs/deprecations", "published": "2026-09-12" }
+      ]
+    },
+    {
+      "id": "openai-assistants-api-removal",
+      "vendor": "OpenAI",
+      "kind": "removal",
+      "direction": "neutral",
+      "date": "2026-08-26",
+      "effective": "2026-08-26",
+      "title": "The Assistants API was removed; Responses API is the only path",
+      "detail": "Teams on the Assistants API must migrate to the Responses API. Threads, runs and the assistant object have no drop-in equivalent.",
+      "impact": "A rewrite of the orchestration layer, not a model swap. If you have not migrated, this is already broken rather than pending.",
+      "confidence": "verified",
+      "sources": [
+        { "url": "https://developers.openai.com/api/docs/deprecations", "published": "2026-08-26" }
+      ]
+    },
+    {
+      "id": "mcp-deprecation-policy-12mo",
+      "vendor": "Model Context Protocol",
+      "kind": "policy",
+      "direction": "neutral",
+      "date": "2026-07-28",
+      "effective": null,
+      "title": "MCP spec now requires 12 months between deprecation and removal",
+      "detail": "The 2026-07-28 revision of the Model Context Protocol specification introduced a formal deprecation policy mandating a minimum twelve-month window between a feature being deprecated and its earliest possible removal.",
+      "impact": "The first enforceable stability guarantee anywhere in this stack. No model API currently offers a window this long, so anything you build against MCP carries less migration risk than the same thing built against a vendor SDK.",
+      "confidence": "verified",
+      "sources": [
+        { "url": "https://modelcontextprotocol.io/specification/2026-07-28", "published": "2026-07-28" }
+      ]
+    },
+    {
+      "id": "vercel-memory-billed-during-io",
+      "vendor": "Vercel",
+      "kind": "pricing",
+      "direction": "up",
+      "date": "2026-07-11",
+      "effective": null,
+      "title": "Memory keeps billing while a Fluid function waits on I/O",
+      "detail": "Active CPU billing pauses when a request is blocked on I/O, but provisioned memory billing continues for the full wall-clock duration of the invocation.",
+      "impact": "The headline saving is real but it is CPU-only. An agent that sits for 40 seconds waiting on a model still pays memory for all 40 seconds. Model the memory line separately before assuming the 90 percent figure applies to your bill.",
+      "confidence": "verified",
+      "sources": [
+        { "url": "https://vercel.com/docs/functions/usage-and-pricing", "published": "2026" },
+        { "url": "https://bex.co/blog/2026/07/11/vercel-fluid-compute-pricing-idle-time-bill", "published": "2026-07-11" }
+      ]
+    },
+    {
+      "id": "replit-effort-based-pricing",
+      "vendor": "Replit",
+      "kind": "pricing",
+      "direction": "variable",
+      "date": "2026-07-01",
+      "effective": "2026-07-01",
+      "title": "Replit Agent moved from $0.25 flat checkpoints to effort-based pricing",
+      "detail": "The Agent now prices each task by the time and computation it decides the task required, bundled into a single checkpoint, instead of splitting work into fixed $0.25 checkpoints. Rolled out to new users immediately and reached existing Core and Teams subscribers from July 1, 2026.",
+      "impact": "You cannot see the price before committing to a task, and the cost lands after the run. Users report being billed on runs that hung or errored. Simple edits can land under $0.25; heavy tasks run well above it.",
+      "confidence": "verified",
+      "sources": [
+        { "url": "https://blog.replit.com/effort-based-pricing", "published": "2026" },
+        { "url": "https://replit.com/blog/effort-based-pricing-recap", "published": "2026" }
+      ]
+    },
+    {
+      "id": "vercel-active-cpu-pricing",
+      "vendor": "Vercel",
+      "kind": "pricing",
+      "direction": "down",
+      "date": "2026-06-24",
+      "effective": null,
+      "title": "Vercel Functions on Fluid compute switched to Active CPU pricing",
+      "detail": "CPU is billed at $0.128 per hour only while code is actively executing, with provisioned memory at $0.0106 per GB-hour. A Standard machine at full CPU moves from about $0.31842 per hour to about $0.149 per hour.",
+      "impact": "A genuine decrease for anything that waits on a model call. Long-running agents and LLM inference stop paying full rate while blocked on I/O.",
+      "confidence": "verified",
+      "sources": [
+        { "url": "https://vercel.com/changelog/lower-pricing-with-active-cpu-pricing-for-fluid-compute", "published": "2026" },
+        { "url": "https://vercel.com/docs/functions/usage-and-pricing", "published": "2026" }
+      ]
+    },
+    {
+      "id": "cursor-spend-alerting",
+      "vendor": "Cursor",
+      "kind": "policy",
+      "direction": "neutral",
+      "date": "2026-06-18",
+      "effective": null,
+      "title": "Cursor rebuilt spend alerting with dollar thresholds routed to Slack or email",
+      "detail": "Admins can set spend thresholds in dollars and route the alerts to Slack or email before the invoice arrives.",
+      "impact": "Turn this on. It is the only mechanism that catches a runaway agent loop inside the billing period rather than after it.",
+      "confidence": "unverified",
+      "sources": [
+        { "url": "https://modelence.com/compare/cursor-pricing", "published": "2026" }
+      ]
+    },
+    {
+      "id": "cursor-third-party-model-surcharge",
+      "vendor": "Cursor",
+      "kind": "pricing",
+      "direction": "up",
+      "date": "2026-06-02",
+      "effective": null,
+      "title": "Third-party model requests carry $0.25 per million tokens above the model's own API price",
+      "detail": "On Teams and Enterprise plans, every third-party model request adds $0.25 per million tokens on top of what the model provider charges.",
+      "impact": "A margin layer on top of the provider rate. Check whether bringing your own key avoids it on your plan before assuming it does.",
+      "confidence": "unverified",
+      "sources": [
+        { "url": "https://modelence.com/compare/cursor-pricing", "published": "2026" }
+      ]
+    },
+    {
+      "id": "github-copilot-model-deprecations",
+      "vendor": "GitHub Copilot",
+      "kind": "removal",
+      "direction": "neutral",
+      "date": "2026-02-19",
+      "effective": "2026-02-19",
+      "title": "GitHub deprecated selected Anthropic and OpenAI models inside Copilot",
+      "detail": "Model availability was withdrawn at the Copilot layer, on GitHub's own schedule rather than the model vendors'.",
+      "impact": "Two deprecation calendars apply to you, not one. A model can stay live on the vendor API while the tool you reach it through drops it.",
+      "confidence": "verified",
+      "sources": [
+        { "url": "https://github.blog/changelog/2026-02-19-selected-anthropic-and-openai-models-are-now-deprecated/", "published": "2026-02-19" }
+      ]
+    },
+    {
+      "id": "cursor-pro-pricing-apology",
+      "vendor": "Cursor",
+      "kind": "pricing",
+      "direction": "up",
+      "date": "2025-07-07",
+      "effective": null,
+      "title": "Cursor apologised and refunded users after an unannounced Pro plan limit change",
+      "detail": "A change to the $20/month Pro plan produced unexpected charges. Anysphere's CEO acknowledged the communication was unclear, rolled back the limits and refunded affected users.",
+      "impact": "The precedent worth remembering: allowance changes on this tier have shipped without notice before, and the correction came only after public pressure.",
+      "confidence": "verified",
+      "sources": [
+        { "url": "https://techcrunch.com/2025/07/07/cursor-apologizes-for-unclear-pricing-changes-that-upset-users/", "published": "2025-07-07" }
+      ]
+    }
+  ]
+}

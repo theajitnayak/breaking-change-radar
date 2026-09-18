@@ -1,0 +1,15 @@
+{
+  "id": "cursor-third-party-model-surcharge",
+  "vendor": "Cursor",
+  "kind": "pricing",
+  "direction": "up",
+  "date": "2026-06-02",
+  "effective": null,
+  "title": "Third-party model requests carry $0.25 per million tokens above the model's own API price",
+  "detail": "On Teams and Enterprise plans, every third-party model request adds $0.25 per million tokens on top of what the model provider charges.",
+  "impact": "A margin layer on top of the provider rate. Check whether bringing your own key avoids it on your plan before assuming it does.",
+  "confidence": "unverified",
+  "sources": [
+    { "url": "https://modelence.com/compare/cursor-pricing", "published": "2026" }
+  ]
+}

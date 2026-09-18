@@ -1,0 +1,15 @@
+{
+  "id": "github-copilot-model-deprecations",
+  "vendor": "GitHub Copilot",
+  "kind": "removal",
+  "direction": "neutral",
+  "date": "2026-02-19",
+  "effective": "2026-02-19",
+  "title": "GitHub deprecated selected Anthropic and OpenAI models inside Copilot",
+  "detail": "Model availability was withdrawn at the Copilot layer, on GitHub's own schedule rather than the model vendors'.",
+  "impact": "Two deprecation calendars apply to you, not one. A model can stay live on the vendor API while the tool you reach it through drops it.",
+  "confidence": "verified",
+  "sources": [
+    { "url": "https://github.blog/changelog/2026-02-19-selected-anthropic-and-openai-models-are-now-deprecated/", "published": "2026-02-19" }
+  ]
+}

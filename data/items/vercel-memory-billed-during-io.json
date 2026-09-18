@@ -1,0 +1,16 @@
+{
+  "id": "vercel-memory-billed-during-io",
+  "vendor": "Vercel",
+  "kind": "pricing",
+  "direction": "up",
+  "date": "2026-07-11",
+  "effective": null,
+  "title": "Memory keeps billing while a Fluid function waits on I/O",
+  "detail": "Active CPU billing pauses when a request is blocked on I/O, but provisioned memory billing continues for the full wall-clock duration of the invocation.",
+  "impact": "The headline saving is real but it is CPU-only. An agent that sits for 40 seconds waiting on a model still pays memory for all 40 seconds. Model the memory line separately before assuming the 90 percent figure applies to your bill.",
+  "confidence": "verified",
+  "sources": [
+    { "url": "https://vercel.com/docs/functions/usage-and-pricing", "published": "2026" },
+    { "url": "https://bex.co/blog/2026/07/11/vercel-fluid-compute-pricing-idle-time-bill", "published": "2026-07-11" }
+  ]
+}

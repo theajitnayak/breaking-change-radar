@@ -1,0 +1,15 @@
+{
+  "id": "openai-gpt5-o3-snapshot-removal",
+  "vendor": "OpenAI",
+  "kind": "removal",
+  "direction": "neutral",
+  "date": "2026-09-12",
+  "effective": "2026-12-11",
+  "title": "GPT-5 and o3 model snapshots are removed from the API on December 11",
+  "detail": "Older GPT-5 and o3 snapshots were given notice of removal from the API. Pinned snapshot IDs do not roll forward to a successor.",
+  "impact": "If you pinned an older snapshot to keep output stable, the call stops resolving on that date rather than silently upgrading. Budget a migration and an eval pass before December.",
+  "confidence": "verified",
+  "sources": [
+    { "url": "https://developers.openai.com/api/docs/deprecations", "published": "2026-09-12" }
+  ]
+}

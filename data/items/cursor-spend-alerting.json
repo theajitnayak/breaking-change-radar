@@ -1,0 +1,15 @@
+{
+  "id": "cursor-spend-alerting",
+  "vendor": "Cursor",
+  "kind": "policy",
+  "direction": "neutral",
+  "date": "2026-06-18",
+  "effective": null,
+  "title": "Cursor rebuilt spend alerting with dollar thresholds routed to Slack or email",
+  "detail": "Admins can set spend thresholds in dollars and route the alerts to Slack or email before the invoice arrives.",
+  "impact": "Turn this on. It is the only mechanism that catches a runaway agent loop inside the billing period rather than after it.",
+  "confidence": "unverified",
+  "sources": [
+    { "url": "https://modelence.com/compare/cursor-pricing", "published": "2026" }
+  ]
+}

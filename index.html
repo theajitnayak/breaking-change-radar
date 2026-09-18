@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Breaking Change Radar</title>
+<meta name="description" content="Pricing, credit, quota and removal changes in AI coding tools and the model APIs they bill through. Every entry cited and dated.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --ground:#F4F6F8; --surface:#FFF; --sunk:#EAEEF2;
+    --edge:#D9E0E7; --edge-soft:#E7ECF1;
+    --ink:#131A22; --ink-mid:#47566A; --ink-faint:#7C8B9E;
+    --accent:#0E6E78;
+    --up:#B3261E;       --up-soft:#FBE9E7;
+    --down:#15704A;     --down-soft:#E1F1E9;
+    --variable:#9A5B00; --variable-soft:#FBF0DE;
+    --removal:#86308C;  --removal-soft:#F5E6F6;
+    --policy:#33509B;   --policy-soft:#E6EBF8;
+    --shadow:0 1px 2px rgba(19,26,34,.06),0 4px 14px rgba(19,26,34,.05);
+  }
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+    --ground:#0E1319; --surface:#161D26; --sunk:#111821;
+    --edge:#2A3542; --edge-soft:#212B36;
+    --ink:#E8EDF3; --ink-mid:#A3B1C2; --ink-faint:#6F7F92;
+    --accent:#4FC3CE;
+    --up:#FF8A7A;       --up-soft:#3A1B18;
+    --down:#5FCB97;     --down-soft:#10301F;
+    --variable:#E8A63D; --variable-soft:#35260E;
+    --removal:#DA92E0;  --removal-soft:#331636;
+    --policy:#8FA8E8;   --policy-soft:#1A2340;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 4px 14px rgba(0,0,0,.3);
+  }}
+  :root[data-theme="dark"]{
+    --ground:#0E1319; --surface:#161D26; --sunk:#111821;
+    --edge:#2A3542; --edge-soft:#212B36;
+    --ink:#E8EDF3; --ink-mid:#A3B1C2; --ink-faint:#6F7F92;
+    --accent:#4FC3CE;
+    --up:#FF8A7A;       --up-soft:#3A1B18;
+    --down:#5FCB97;     --down-soft:#10301F;
+    --variable:#E8A63D; --variable-soft:#35260E;
+    --removal:#DA92E0;  --removal-soft:#331636;
+    --policy:#8FA8E8;   --policy-soft:#1A2340;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 4px 14px rgba(0,0,0,.3);
+  }
+
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{
+    background:var(--ground); color:var(--ink);
+    font-family:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    font-size:15px; line-height:1.5; -webkit-font-smoothing:antialiased;
+    padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  img{max-width:100%}
+  [hidden]{display:none!important}
+
+  .masthead{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;
+    background:color-mix(in srgb,var(--ground) 88%,transparent);
+    backdrop-filter:blur(12px);border-bottom:1px solid var(--edge)}
+  .masthead-inner{max-width:900px;margin:0 auto;padding:12px 16px;
+    display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .wordmark{font-family:Archivo,sans-serif;font-weight:700;font-size:16px;
+    letter-spacing:-.015em;margin:0;display:flex;align-items:center;gap:8px}
+  .pulse{width:8px;height:8px;border-radius:50%;background:var(--down);
+    box-shadow:0 0 0 3px color-mix(in srgb,var(--down) 22%,transparent);
+    flex:none;animation:blip 2.4s ease-in-out infinite}
+  @keyframes blip{0%,100%{opacity:1}50%{opacity:.35}}
+  @media (prefers-reduced-motion:reduce){.pulse{animation:none}}
+  .sweep{margin-left:auto;font-family:"IBM Plex Mono",monospace;font-size:11px;
+    color:var(--ink-faint);letter-spacing:.02em}
+
+  .page{max-width:900px;margin:0 auto;padding-inline:16px;padding-block:22px 56px}
+
+  .lede{font-size:14px;color:var(--ink-mid);max-width:64ch;margin:0 0 18px}
+  .lede b{color:var(--ink);font-weight:600}
+
+  .alarm{display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+    background:var(--surface);border:1px solid var(--edge);
+    border-left:3px solid var(--up);border-radius:3px;padding:14px 16px;box-shadow:var(--shadow)}
+  .alarm-clock{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;
+    font-size:30px;font-weight:600;line-height:1;color:var(--up);flex:none}
+  .alarm-clock span{font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;
+    display:block;margin-top:5px;color:var(--ink-faint)}
+  .alarm-body{flex:1 1 260px;min-width:0}
+  .alarm-body strong{display:block;font-weight:600;font-size:15px}
+  .alarm-body p{margin:3px 0 0;font-size:13px;color:var(--ink-mid)}
+
+  .rollup{display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:1px;
+    background:var(--edge-soft);border:1px solid var(--edge);border-radius:3px;
+    overflow:hidden;margin-top:10px}
+  .rollup button{appearance:none;background:var(--surface);border:0;border-top:2px solid transparent;
+    padding:11px 12px;text-align:left;cursor:pointer;font:inherit;color:var(--ink-mid);
+    display:flex;flex-direction:column;gap:2px;transition:background .12s ease}
+  .rollup button:hover{background:var(--sunk)}
+  .rollup button[aria-pressed="true"]{background:var(--sunk)}
+  .rollup .n{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;
+    font-size:19px;font-weight:600;color:var(--ink);line-height:1.1}
+  .rollup .k{font-size:10px;letter-spacing:.09em;text-transform:uppercase;font-weight:600}
+  .rollup button:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+  .rollup button[data-t="up"] .k{color:var(--up)}
+  .rollup button[data-t="down"] .k{color:var(--down)}
+  .rollup button[data-t="variable"] .k{color:var(--variable)}
+  .rollup button[data-t="removal"] .k{color:var(--removal)}
+  .rollup button[data-t="policy"] .k{color:var(--policy)}
+  .rollup button[data-t="up"][aria-pressed="true"]{border-top-color:var(--up)}
+  .rollup button[data-t="down"][aria-pressed="true"]{border-top-color:var(--down)}
+  .rollup button[data-t="variable"][aria-pressed="true"]{border-top-color:var(--variable)}
+  .rollup button[data-t="removal"][aria-pressed="true"]{border-top-color:var(--removal)}
+  .rollup button[data-t="policy"][aria-pressed="true"]{border-top-color:var(--policy)}
+
+  .scope{display:flex;align-items:baseline;justify-content:space-between;gap:12px;
+    flex-wrap:wrap;margin:26px 0 8px}
+  .scope h2{font-family:Archivo,sans-serif;font-size:12px;font-weight:700;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--ink-faint);margin:0}
+  .reset{appearance:none;background:none;border:0;padding:0;font:inherit;font-size:12px;
+    color:var(--accent);cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+
+  .daymark{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.05em;
+    color:var(--ink-faint);margin:22px 0 8px;display:flex;align-items:center;gap:10px}
+  .daymark::after{content:"";flex:1;height:1px;background:var(--edge)}
+
+  .feed{display:flex;flex-direction:column;gap:8px}
+  .entry{background:var(--surface);border:1px solid var(--edge);border-left-width:3px;
+    border-radius:3px;padding:13px 15px;display:grid;gap:7px}
+  .entry[data-t="up"]{border-left-color:var(--up)}
+  .entry[data-t="down"]{border-left-color:var(--down)}
+  .entry[data-t="variable"]{border-left-color:var(--variable)}
+  .entry[data-t="removal"]{border-left-color:var(--removal)}
+  .entry[data-t="policy"]{border-left-color:var(--policy)}
+
+  .entry-top{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .chip{font-family:"IBM Plex Mono",monospace;font-size:10px;font-weight:600;
+    letter-spacing:.07em;text-transform:uppercase;padding:2px 7px;border-radius:2px;flex:none}
+  .chip[data-t="up"]{background:var(--up-soft);color:var(--up)}
+  .chip[data-t="down"]{background:var(--down-soft);color:var(--down)}
+  .chip[data-t="variable"]{background:var(--variable-soft);color:var(--variable)}
+  .chip[data-t="removal"]{background:var(--removal-soft);color:var(--removal)}
+  .chip[data-t="policy"]{background:var(--policy-soft);color:var(--policy)}
+  .vendor{font-size:12px;font-weight:600;color:var(--ink-mid)}
+  .flag{font-family:"IBM Plex Mono",monospace;font-size:9px;font-weight:600;letter-spacing:.08em;
+    color:var(--ink-faint);border:1px dashed var(--edge);padding:1px 5px;border-radius:2px}
+  .clock{margin-left:auto;font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;
+    font-size:11px;font-weight:600;padding:2px 8px;border-radius:2px;
+    background:var(--sunk);color:var(--ink-mid);flex:none}
+  .clock.urgent{background:var(--up-soft);color:var(--up)}
+  .clock.soon{background:var(--variable-soft);color:var(--variable)}
+
+  .entry h3{margin:0;font-family:Archivo,sans-serif;font-size:15.5px;font-weight:600;
+    line-height:1.35;letter-spacing:-.01em;text-wrap:balance}
+  .detail{margin:0;font-size:13.5px;color:var(--ink-mid);max-width:64ch}
+  .impact{margin:0;font-size:13.5px;color:var(--ink-mid);max-width:64ch;
+    border-left:2px solid var(--edge);padding-left:10px}
+  .impact b{color:var(--ink);font-weight:600}
+  .cite{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-faint);
+    display:flex;gap:10px;flex-wrap:wrap;align-items:baseline}
+  .cite a{color:var(--accent);text-decoration:none;
+    border-bottom:1px solid color-mix(in srgb,var(--accent) 35%,transparent)}
+  .cite a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+  .empty{border:1px dashed var(--edge);border-radius:3px;padding:34px 18px;text-align:center;
+    color:var(--ink-faint);font-size:13px}
+
+  .colophon{margin-top:34px;padding-top:16px;border-top:1px solid var(--edge);
+    font-size:12px;color:var(--ink-faint);line-height:1.6;max-width:70ch}
+  .colophon strong{color:var(--ink-mid);font-weight:600}
+  .colophon a{color:var(--accent)}
+
+  @media (max-width:460px){
+    .alarm-clock{font-size:25px}
+    .entry h3{font-size:14.5px}
+    .clock{margin-left:0}
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <h1 class="wordmark"><span class="pulse" aria-hidden="true"></span>Breaking Change Radar</h1>
+    <div class="sweep" id="sweep">loading</div>
+  </div>
+</header>
+
+<main class="page">
+  <p class="lede">
+    What the AI coding tools quietly changed about <b>what you pay and what you are allowed to use</b>.
+    Pricing, credits, quotas and removals only. Every entry carries the page it came from and that
+    page's date; anything not confirmed on a primary source is stamped UNVERIFIED rather than dropped.
+  </p>
+
+  <section class="alarm" id="alarm" aria-live="polite" hidden>
+    <div class="alarm-clock" id="alarmClock">&mdash;<span>days left</span></div>
+    <div class="alarm-body">
+      <strong id="alarmTitle"></strong>
+      <p id="alarmNote"></p>
+    </div>
+  </section>
+
+  <nav class="rollup" id="rollup" aria-label="Filter by impact"></nav>
+
+  <div class="scope">
+    <h2 id="scopeLabel">Loading</h2>
+    <button class="reset" id="reset" type="button" hidden>Clear filter</button>
+  </div>
+
+  <div class="feed" id="feed"></div>
+
+  <p class="colophon">
+    <strong>Open data.</strong> The feed is a single JSON file in this repository, appended to daily.
+    Corrections are pull requests against <code>data/changes.json</code>. Countdowns recompute against
+    your device clock, so a date that has passed is shown as passed rather than silently hidden.
+  </p>
+</main>
+
+<script>
+(function () {
+  "use strict";
+
+  var TONES = [
+    { t: "up",       label: "Costs more" },
+    { t: "variable", label: "Unpredictable" },
+    { t: "removal",  label: "Going away" },
+    { t: "down",     label: "Costs less" },
+    { t: "policy",   label: "Policy" }
+  ];
+
+  var DAY = 864e5;
+  var now = new Date();
+  var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+
+  function parseDay(s) { var p = String(s).split("-"); return new Date(+p[0], +p[1] - 1, +p[2]); }
+  function daysUntil(s) { return Math.round((parseDay(s) - today) / DAY); }
+  function longDate(s) {
+    return parseDay(s).toLocaleDateString(undefined, { month: "long", day: "numeric", year: "numeric" });
+  }
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+  function toneOf(item) {
+    if (item.kind === "removal") return "removal";
+    if (item.direction === "up") return "up";
+    if (item.direction === "down") return "down";
+    if (item.direction === "variable") return "variable";
+    return "policy";
+  }
+  function host(u) { return String(u).replace(/^https?:\/\//, "").split("/")[0]; }
+
+  var ITEMS = [];
+  var active = null;
+
+  var feedEl   = document.getElementById("feed");
+  var rollupEl = document.getElementById("rollup");
+  var resetEl  = document.getElementById("reset");
+  var scopeEl  = document.getElementById("scopeLabel");
+
+  function buildRollup() {
+    rollupEl.textContent = "";
+    TONES.forEach(function (tone) {
+      var n = ITEMS.filter(function (i) { return toneOf(i) === tone.t; }).length;
+      var b = document.createElement("button");
+      b.type = "button";
+      b.dataset.t = tone.t;
+      b.setAttribute("aria-pressed", "false");
+      b.innerHTML = '<span class="n">' + n + '</span><span class="k">' + tone.label + "</span>";
+      b.addEventListener("click", function () {
+        active = active === tone.t ? null : tone.t;
+        render();
+      });
+      rollupEl.appendChild(b);
+    });
+  }
+
+  function buildAlarm() {
+    var live = ITEMS
+      .filter(function (i) { return i.effective && daysUntil(i.effective) >= 0; })
+      .sort(function (a, b) { return daysUntil(a.effective) - daysUntil(b.effective); })[0];
+    if (!live) return;
+    var d = daysUntil(live.effective);
+    document.getElementById("alarmClock").innerHTML =
+      d + "<span>" + (d === 1 ? "day left" : "days left") + "</span>";
+    document.getElementById("alarmTitle").textContent = live.title;
+    document.getElementById("alarmNote").textContent =
+      live.vendor + " · takes effect " + longDate(live.effective);
+    document.getElementById("alarm").hidden = false;
+  }
+
+  function entryNode(item) {
+    var tone = toneOf(item);
+    var el = document.createElement("article");
+    el.className = "entry";
+    el.dataset.t = tone;
+
+    var label = TONES.filter(function (x) { return x.t === tone; })[0].label;
+
+    var top = '<div class="entry-top">' +
+      '<span class="chip" data-t="' + tone + '">' + esc(label) + "</span>" +
+      '<span class="vendor">' + esc(item.vendor) + "</span>" +
+      (item.confidence === "unverified" ? '<span class="flag">UNVERIFIED</span>' : "");
+
+    if (item.effective) {
+      var dd = daysUntil(item.effective), cls = "clock", txt;
+      if (dd < 0)        txt = "in effect " + Math.abs(dd) + "d";
+      else if (dd === 0) { txt = "today"; cls += " urgent"; }
+      else               { txt = dd + "d"; cls += dd <= 7 ? " urgent" : (dd <= 45 ? " soon" : ""); }
+      top += '<span class="' + cls + '">' + txt + "</span>";
+    }
+    top += "</div>";
+
+    var cites = (item.sources || []).map(function (s) {
+      return '<a href="' + esc(s.url) + '" target="_blank" rel="noopener noreferrer">' +
+        esc(host(s.url)) + "</a>";
+    }).join("");
+
+    el.innerHTML = top +
+      "<h3>" + esc(item.title) + "</h3>" +
+      '<p class="detail">' + esc(item.detail) + "</p>" +
+      '<p class="impact">' + item.impact.replace(/<(?!\/?b>)/g, "&lt;") + "</p>" +
+      '<div class="cite">' + cites +
+        "<span>filed " + esc(item.date) + "</span></div>";
+    return el;
+  }
+
+  function render() {
+    var rows = active ? ITEMS.filter(function (i) { return toneOf(i) === active; }) : ITEMS.slice();
+    rows.sort(function (a, b) { return parseDay(b.date) - parseDay(a.date); });
+
+    Array.prototype.forEach.call(rollupEl.children, function (b) {
+      b.setAttribute("aria-pressed", String(b.dataset.t === active));
+    });
+
+    resetEl.hidden = !active;
+    var lbl = active ? TONES.filter(function (x) { return x.t === active; })[0].label : null;
+    scopeEl.textContent = active
+      ? lbl + " — " + rows.length + " of " + ITEMS.length
+      : "All changes — " + ITEMS.length + " tracked";
+
+    feedEl.textContent = "";
+    if (!rows.length) {
+      var e = document.createElement("div");
+      e.className = "empty";
+      e.textContent = "Nothing in this lane. That is a valid result, not a gap.";
+      feedEl.appendChild(e);
+      return;
+    }
+
+    var lastMark = null;
+    rows.forEach(function (item) {
+      var mark = parseDay(item.date)
+        .toLocaleDateString(undefined, { month: "long", year: "numeric" }).toUpperCase();
+      if (mark !== lastMark) {
+        var h = document.createElement("div");
+        h.className = "daymark";
+        h.innerHTML = "<span>" + mark + "</span>";
+        feedEl.appendChild(h);
+        lastMark = mark;
+      }
+      feedEl.appendChild(entryNode(item));
+    });
+  }
+
+  resetEl.addEventListener("click", function () { active = null; render(); });
+
+  fetch("data/changes.json", { cache: "no-store" })
+    .then(function (r) {
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      return r.json();
+    })
+    .then(function (d) {
+      ITEMS = d.items || [];
+      document.getElementById("sweep").textContent = "updated " + (d.updated || "—");
+      buildRollup();
+      buildAlarm();
+      render();
+    })
+    .catch(function (err) {
+      document.getElementById("sweep").textContent = "feed unavailable";
+      scopeEl.textContent = "Feed unavailable";
+      feedEl.innerHTML = '<div class="empty">Could not load <code>data/changes.json</code> (' +
+        esc(err.message) + '). Opening this file directly from disk will hit this ' +
+        'because browsers block local fetches. Serve the folder over HTTP, or view the ' +
+        'published site.</div>';
+    });
+})();
+</script>
+</body>
+</html>

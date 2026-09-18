@@ -1,0 +1,15 @@
+{
+  "id": "mcp-deprecation-policy-12mo",
+  "vendor": "Model Context Protocol",
+  "kind": "policy",
+  "direction": "neutral",
+  "date": "2026-07-28",
+  "effective": null,
+  "title": "MCP spec now requires 12 months between deprecation and removal",
+  "detail": "The 2026-07-28 revision of the Model Context Protocol specification introduced a formal deprecation policy mandating a minimum twelve-month window between a feature being deprecated and its earliest possible removal.",
+  "impact": "The first enforceable stability guarantee anywhere in this stack. No model API currently offers a window this long, so anything you build against MCP carries less migration risk than the same thing built against a vendor SDK.",
+  "confidence": "verified",
+  "sources": [
+    { "url": "https://modelcontextprotocol.io/specification/2026-07-28", "published": "2026-07-28" }
+  ]
+}

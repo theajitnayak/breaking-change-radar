@@ -1,0 +1,15 @@
+{
+  "id": "cursor-pro-pricing-apology",
+  "vendor": "Cursor",
+  "kind": "pricing",
+  "direction": "up",
+  "date": "2025-07-07",
+  "effective": null,
+  "title": "Cursor apologised and refunded users after an unannounced Pro plan limit change",
+  "detail": "A change to the $20/month Pro plan produced unexpected charges. Anysphere's CEO acknowledged the communication was unclear, rolled back the limits and refunded affected users.",
+  "impact": "The precedent worth remembering: allowance changes on this tier have shipped without notice before, and the correction came only after public pressure.",
+  "confidence": "verified",
+  "sources": [
+    { "url": "https://techcrunch.com/2025/07/07/cursor-apologizes-for-unclear-pricing-changes-that-upset-users/", "published": "2025-07-07" }
+  ]
+}
