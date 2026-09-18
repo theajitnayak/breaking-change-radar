@@ -1,0 +1,16 @@
+{
+  "id": "gemini-pro-free-tier-removed",
+  "vendor": "Google Gemini API",
+  "kind": "removal",
+  "direction": "up",
+  "date": "2026-04-01",
+  "effective": "2026-04-01",
+  "title": "Gemini Pro models left the free API tier and now require billing",
+  "detail": "Gemini 3.1 Pro, Gemini 3 Pro and Gemini 2.5 Pro all require a billing account from April 1, 2026. Flash and Flash-Lite stay free on tightened daily quotas, reported at 5 to 15 requests per minute and up to 1,000 requests per day. Sources also describe a free-tier quota cut of 50 to 80 percent from December 2025, and a mandatory monthly spending cap that pauses the API once reached.",
+  "impact": "Any prototype or side project running on free Pro access stopped working that day unless billing was attached. Check whether a Flash model covers the job before paying for Pro.",
+  "confidence": "unverified",
+  "sources": [
+    { "url": "https://www.aipricing.guru/news/google-ends-free-gemini-pro-api-access/", "published": "2026" },
+    { "url": "https://help.apiyi.com/en/google-gemini-api-free-tier-changes-april-2026-guide-en.html", "published": "2026" }
+  ]
+}

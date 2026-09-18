@@ -1,0 +1,15 @@
+{
+  "id": "windsurf-renamed-devin-desktop",
+  "vendor": "Windsurf",
+  "kind": "removal",
+  "direction": "neutral",
+  "date": "2026-06-02",
+  "effective": "2026-06-02",
+  "title": "Cognition renamed Windsurf to Devin Desktop through an over-the-air update",
+  "detail": "Cognition, which acquired Windsurf in 2025, pushed the rename straight to installed clients rather than shipping it as a separate product.",
+  "impact": "The editor you subscribed to changed identity without an opt-in. Worth knowing if you name the product in internal docs, expense claims or procurement records.",
+  "confidence": "unverified",
+  "sources": [
+    { "url": "https://thevibelog.dev/blog/windsurf-review-2026/", "published": "2026" }
+  ]
+}

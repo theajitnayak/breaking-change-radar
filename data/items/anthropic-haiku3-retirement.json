@@ -1,0 +1,16 @@
+{
+  "id": "anthropic-haiku3-retirement",
+  "vendor": "Anthropic API",
+  "kind": "removal",
+  "direction": "up",
+  "date": "2026-04-19",
+  "effective": "2026-04-19",
+  "title": "Claude Haiku 3 retired and the default replacement costs four times as much",
+  "detail": "Haiku 3 ran at $0.25 input and $1.25 output per million tokens. The migration path is Haiku 4.5 at $1 and $5, or Haiku 3.5 at $0.80 and $4 where cost matters more than capability. Claude Sonnet 3.7 is deprecated as well.",
+  "impact": "A removal that is really a price rise. High-volume classification or extraction built on Haiku 3 economics gets four times more expensive on the default path. Price Haiku 3.5 before defaulting to 4.5.",
+  "delta": { "label": "Cheapest Claude input", "from": 0.25, "to": 1, "unit": "/M tokens", "prefix": "$" },
+  "confidence": "unverified",
+  "sources": [
+    { "url": "https://www.cloudzero.com/blog/claude-pricing/", "published": "2026" }
+  ]
+}

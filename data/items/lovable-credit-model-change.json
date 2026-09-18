@@ -1,0 +1,16 @@
+{
+  "id": "lovable-credit-model-change",
+  "vendor": "Lovable",
+  "kind": "pricing",
+  "direction": "variable",
+  "date": "2026-05-01",
+  "effective": null,
+  "title": "Lovable merged its two balances into one credit pool and complex generations now cost 2 to 3 credits",
+  "detail": "Hosting and AI were previously billed as two separate balances. A single unified credit pool now covers building, hosting, backend and the AI features inside the deployed app. Plan mode stays flat at 1 credit per message while Build mode is usage based, and multi-file generations that used to cost 1 credit now cost 2 to 3. Credit allocations on Starter and Pro were raised in the same period. Sources place all of this in May 2026 without publishing an exact day.",
+  "impact": "The headline allocation went up, but so did the cost of the messages that actually do work. Count credits per completed feature rather than per message when comparing against your old bill.",
+  "confidence": "unverified",
+  "sources": [
+    { "url": "https://www.nocode.mba/articles/lovable-pricing", "published": "2026" },
+    { "url": "https://www.totalum.app/blog/lovable-pricing-2026", "published": "2026" }
+  ]
+}

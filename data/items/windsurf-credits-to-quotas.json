@@ -1,0 +1,17 @@
+{
+  "id": "windsurf-credits-to-quotas",
+  "vendor": "Windsurf",
+  "kind": "pricing",
+  "direction": "up",
+  "date": "2026-03-19",
+  "effective": "2026-03-19",
+  "title": "Windsurf replaced monthly credits with daily and weekly quotas and moved Pro from $15 to $20",
+  "detail": "Pro previously carried a pool of 500 credits per month. The new plans meter usage as daily and weekly quotas that refresh on their own, with no monthly pool to exhaust. Five tiers now exist: Free, Pro at $20 per month, Max at $200, Teams at $40 per user and Enterprise. Existing paid subscribers keep their old pricing.",
+  "impact": "A quota is a rate limit, not a budget. You can no longer spend a whole month of allowance on one large project in a single week, however much is notionally left. If your work is bursty, that constraint bites harder than the price rise.",
+  "delta": { "label": "Windsurf Pro", "from": 15, "to": 20, "unit": "/mo", "prefix": "$" },
+  "confidence": "verified",
+  "sources": [
+    { "url": "https://devin.ai/blog/windsurf-pricing-plans", "published": "2026" },
+    { "url": "https://www.usagepricing.com/blueprint/activity/windsurf-2026-04-packaging", "published": "2026" }
+  ]
+}

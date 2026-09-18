@@ -1,0 +1,16 @@
+{
+  "id": "anthropic-sonnet5-price-hold",
+  "vendor": "Anthropic API",
+  "kind": "policy",
+  "direction": "neutral",
+  "date": "2026-08-11",
+  "effective": null,
+  "title": "Anthropic cancelled the planned Sonnet 5 price rise and made $2 / $10 permanent",
+  "detail": "An increase to $3 input and $15 output per million tokens had been scheduled for September 1, 2026. Anthropic cancelled it on August 11 and kept the launch rate of $2 input and $10 output.",
+  "impact": "A price rise that was announced and then withdrawn. If you rebudgeted or migrated off Sonnet 5 in anticipation, the reason for that move no longer exists.",
+  "confidence": "unverified",
+  "sources": [
+    { "url": "https://www.cloudzero.com/blog/claude-pricing/", "published": "2026" },
+    { "url": "https://benchlm.ai/anthropic/api-pricing", "published": "2026-09" }
+  ]
+}
