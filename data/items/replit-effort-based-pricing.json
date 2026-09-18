@@ -8,6 +8,7 @@
   "title": "Replit Agent moved from $0.25 flat checkpoints to effort-based pricing",
   "detail": "The Agent now prices each task by the time and computation it decides the task required, bundled into a single checkpoint, instead of splitting work into fixed $0.25 checkpoints. Rolled out to new users immediately and reached existing Core and Teams subscribers from July 1, 2026.",
   "impact": "You cannot see the price before committing to a task, and the cost lands after the run. Users report being billed on runs that hung or errored. Simple edits can land under $0.25; heavy tasks run well above it.",
+  "delta": { "label": "Replit Agent checkpoint", "from": 0.25, "to": null, "unit": "/task", "prefix": "$" },
   "confidence": "verified",
   "sources": [
     { "url": "https://blog.replit.com/effort-based-pricing", "published": "2026" },

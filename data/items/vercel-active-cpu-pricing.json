@@ -8,6 +8,7 @@
   "title": "Vercel Functions on Fluid compute switched to Active CPU pricing",
   "detail": "CPU is billed at $0.128 per hour only while code is actively executing, with provisioned memory at $0.0106 per GB-hour. A Standard machine at full CPU moves from about $0.31842 per hour to about $0.149 per hour.",
   "impact": "A genuine decrease for anything that waits on a model call. Long-running agents and LLM inference stop paying full rate while blocked on I/O.",
+  "delta": { "label": "Vercel Fluid compute", "from": 0.31842, "to": 0.149, "unit": "/hr", "prefix": "$" },
   "confidence": "verified",
   "sources": [
     { "url": "https://vercel.com/changelog/lower-pricing-with-active-cpu-pricing-for-fluid-compute", "published": "2026" },

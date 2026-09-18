@@ -74,6 +74,7 @@
       "title": "Replit Agent moved from $0.25 flat checkpoints to effort-based pricing",
       "detail": "The Agent now prices each task by the time and computation it decides the task required, bundled into a single checkpoint, instead of splitting work into fixed $0.25 checkpoints. Rolled out to new users immediately and reached existing Core and Teams subscribers from July 1, 2026.",
       "impact": "You cannot see the price before committing to a task, and the cost lands after the run. Users report being billed on runs that hung or errored. Simple edits can land under $0.25; heavy tasks run well above it.",
+      "delta": { "label": "Replit Agent checkpoint", "from": 0.25, "to": null, "unit": "/task", "prefix": "$" },
       "confidence": "verified",
       "sources": [
         { "url": "https://blog.replit.com/effort-based-pricing", "published": "2026" },
@@ -90,6 +91,7 @@
       "title": "Vercel Functions on Fluid compute switched to Active CPU pricing",
       "detail": "CPU is billed at $0.128 per hour only while code is actively executing, with provisioned memory at $0.0106 per GB-hour. A Standard machine at full CPU moves from about $0.31842 per hour to about $0.149 per hour.",
       "impact": "A genuine decrease for anything that waits on a model call. Long-running agents and LLM inference stop paying full rate while blocked on I/O.",
+      "delta": { "label": "Vercel Fluid compute", "from": 0.31842, "to": 0.149, "unit": "/hr", "prefix": "$" },
       "confidence": "verified",
       "sources": [
         { "url": "https://vercel.com/changelog/lower-pricing-with-active-cpu-pricing-for-fluid-compute", "published": "2026" },
@@ -121,6 +123,7 @@
       "title": "Third-party model requests carry $0.25 per million tokens above the model's own API price",
       "detail": "On Teams and Enterprise plans, every third-party model request adds $0.25 per million tokens on top of what the model provider charges.",
       "impact": "A margin layer on top of the provider rate. Check whether bringing your own key avoids it on your plan before assuming it does.",
+      "delta": { "label": "Cursor third-party models", "from": 0, "to": 0.25, "unit": "/M tokens", "prefix": "$" },
       "confidence": "unverified",
       "sources": [
         { "url": "https://modelence.com/compare/cursor-pricing", "published": "2026" }
