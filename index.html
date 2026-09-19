@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Breaking Change Radar</title>
-<meta name="description" content="Pricing, credit, quota and removal changes in AI coding tools and the model APIs they bill through. Every entry cited and dated.">
+<meta name="description" content="Tick the AI tools you pay for and see exactly which pricing, credit and quota changes hit you, with a countdown to the next one. Every entry cited and dated.">
 <meta property="og:title" content="Breaking Change Radar">
-<meta property="og:description" content="Your AI tools changed what they charge. Nobody sent an email.">
+<meta property="og:description" content="Tick the tools you pay for. See what changed, what it costs you, and what lands next.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
@@ -23,7 +23,7 @@
     --policy:#33509B;   --policy-soft:#E6EBF8;
     --shadow:0 1px 2px rgba(19,26,34,.06),0 4px 14px rgba(19,26,34,.05);
     --hero-bg:#0A0E13; --hero-ink:#EEF3F8; --hero-mid:#93A5B8; --hero-faint:#5E7086;
-    --hero-edge:#1E2833; --hero-card:#111823;
+    --hero-edge:#1E2833; --hero-card:#111823; --hero-card-lift:#18212E;
     --hero-accent:#43C3CF; --hero-up:#FF8E7D; --hero-down:#63D19B; --hero-var:#EDAC48;
   }
   @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
@@ -61,45 +61,76 @@
   }
   img{max-width:100%}
   [hidden]{display:none!important}
-  .wrap{max-width:900px;margin:0 auto;padding-inline:16px}
+  .wrap{max-width:940px;margin:0 auto;padding-inline:16px}
+  .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
+  /* ============ HERO ============ */
   .hero{background:var(--hero-bg);color:var(--hero-ink);
     border-bottom:1px solid var(--hero-edge);position:relative;overflow:hidden}
-  .hero::before{content:"";position:absolute;inset:-40% 20% auto -10%;height:520px;
+  .hero::before{content:"";position:absolute;inset:-40% 20% auto -10%;height:560px;
     background:radial-gradient(ellipse at 30% 40%, rgba(67,195,207,.13), transparent 62%);
     pointer-events:none}
-  .hero-inner{position:relative;padding-block:56px 44px}
+  .hero-inner{position:relative;padding-block:52px 40px}
 
   .eyebrow{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;
-    text-transform:uppercase;color:var(--hero-faint);margin:0 0 18px;
-    display:flex;align-items:center;gap:9px}
+    text-transform:uppercase;color:var(--hero-faint);margin:0 0 16px;
+    display:flex;align-items:center;gap:9px;flex-wrap:wrap}
   .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--hero-down);
-    box-shadow:0 0 0 3px rgba(99,209,155,.18);animation:blip 2.4s ease-in-out infinite}
+    box-shadow:0 0 0 3px rgba(99,209,155,.18);animation:blip 2.4s ease-in-out infinite;flex:none}
   @keyframes blip{0%,100%{opacity:1}50%{opacity:.3}}
 
   .hero h1{font-family:Archivo,sans-serif;font-weight:800;
-    font-size:clamp(30px,5.4vw,52px);line-height:1.04;letter-spacing:-.03em;
-    margin:0 0 16px;max-width:17ch;text-wrap:balance}
+    font-size:clamp(29px,5vw,50px);line-height:1.05;letter-spacing:-.03em;
+    margin:0 0 14px;max-width:18ch;text-wrap:balance}
   .hero h1 em{font-style:normal;color:var(--hero-up)}
-  .hero-sub{margin:0 0 30px;font-size:clamp(15px,1.7vw,17px);line-height:1.55;
-    color:var(--hero-mid);max-width:54ch}
+  .hero-sub{margin:0 0 28px;font-size:clamp(15px,1.6vw,17px);line-height:1.55;
+    color:var(--hero-mid);max-width:56ch}
   .hero-sub b{color:var(--hero-ink);font-weight:600}
 
-  .tape{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:10px;margin-bottom:28px}
-  .tape-card{background:var(--hero-card);border:1px solid var(--hero-edge);border-radius:4px;
-    padding:14px 15px;display:grid;gap:9px}
-  .tape-label{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.09em;
-    text-transform:uppercase;color:var(--hero-faint)}
-  .tape-row{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
-  .tape-from{font-family:"IBM Plex Mono",monospace;font-size:14px;color:var(--hero-faint);
-    text-decoration:line-through;text-decoration-thickness:1px;font-variant-numeric:tabular-nums}
-  .tape-arrow{color:var(--hero-faint);font-size:12px}
-  .tape-to{font-family:"IBM Plex Mono",monospace;font-size:25px;font-weight:600;line-height:1;
-    font-variant-numeric:tabular-nums}
-  .tape-card[data-d="up"] .tape-to{color:var(--hero-up)}
-  .tape-card[data-d="down"] .tape-to{color:var(--hero-down)}
-  .tape-card[data-d="variable"] .tape-to{color:var(--hero-var)}
-  .tape-unit{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--hero-faint)}
+  /* ---- the picker: the whole point of the page ---- */
+  .ask{font-family:Archivo,sans-serif;font-weight:700;font-size:14px;
+    letter-spacing:-.005em;margin:0 0 10px;color:var(--hero-ink);
+    display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
+  .ask span{font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:400;
+    letter-spacing:.06em;text-transform:uppercase;color:var(--hero-faint)}
+
+  .picker{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 20px;padding:0;list-style:none}
+  .tool{appearance:none;font:inherit;font-size:13px;font-weight:500;cursor:pointer;
+    padding:7px 13px;border-radius:999px;
+    border:1px solid var(--hero-edge);background:var(--hero-card);color:var(--hero-mid);
+    transition:border-color .13s ease,background .13s ease,color .13s ease,transform .13s ease;
+    display:inline-flex;align-items:center;gap:7px}
+  .tool:hover{background:var(--hero-card-lift);color:var(--hero-ink)}
+  .tool .tick{width:13px;height:13px;flex:none;opacity:0;transition:opacity .13s ease}
+  .tool[aria-pressed="true"]{background:rgba(67,195,207,.13);border-color:var(--hero-accent);
+    color:var(--hero-ink);font-weight:600}
+  .tool[aria-pressed="true"] .tick{opacity:1}
+  .tool:focus-visible{outline:2px solid var(--hero-accent);outline-offset:2px}
+
+  /* ---- the payoff ---- */
+  .readout{background:var(--hero-card);border:1px solid var(--hero-edge);
+    border-radius:5px;padding:18px 18px 16px;margin-bottom:20px}
+  .readout.hot{border-color:rgba(255,142,125,.42)}
+  .readout-head{display:flex;align-items:flex-start;gap:18px;flex-wrap:wrap}
+  .figure{flex:none}
+  .figure .n{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;
+    font-size:44px;font-weight:600;line-height:.95;letter-spacing:-.02em;display:block}
+  .figure .cap{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--hero-faint);display:block;margin-top:7px}
+  .readout .lede{flex:1 1 300px;min-width:0;margin:0;font-size:14.5px;line-height:1.5;
+    color:var(--hero-mid);align-self:center}
+  .readout .lede b{color:var(--hero-ink);font-weight:600}
+  .readout .lede .warn{color:var(--hero-up);font-weight:600}
+
+  .breakdown{display:flex;gap:18px;flex-wrap:wrap;margin-top:15px;padding-top:14px;
+    border-top:1px solid var(--hero-edge)}
+  .stat{display:flex;align-items:baseline;gap:7px;font-size:12.5px;color:var(--hero-faint)}
+  .stat b{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;
+    font-size:16px;font-weight:600}
+  .stat[data-t="up"] b{color:var(--hero-up)}
+  .stat[data-t="variable"] b{color:var(--hero-var)}
+  .stat[data-t="removal"] b{color:var(--hero-ink)}
+  .stat[data-t="down"] b{color:var(--hero-down)}
 
   .hero-cta{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
   .btn{appearance:none;font:inherit;font-size:14px;font-weight:600;cursor:pointer;
@@ -107,20 +138,22 @@
     display:inline-block;transition:transform .12s ease,background .12s ease}
   .btn-primary{background:var(--hero-accent);color:#04181B}
   .btn-primary:hover{transform:translateY(-1px)}
+  .btn-primary:disabled{opacity:.5;cursor:default;transform:none}
   .btn-ghost{background:transparent;color:var(--hero-ink);border-color:var(--hero-edge)}
   .btn-ghost:hover{background:var(--hero-card)}
   .btn:focus-visible{outline:2px solid var(--hero-accent);outline-offset:3px}
 
-  .hero-form{display:flex;gap:8px;flex-wrap:wrap;flex:1 1 300px;min-width:0}
+  .hero-form{display:flex;gap:8px;flex-wrap:wrap;flex:1 1 320px;min-width:0}
   .hero-form input{flex:1 1 200px;min-width:0;font:inherit;font-size:14px;padding:11px 13px;
     border:1px solid var(--hero-edge);border-radius:3px;
     background:var(--hero-card);color:var(--hero-ink)}
   .hero-form input::placeholder{color:var(--hero-faint)}
   .hero-form input:focus-visible{outline:2px solid var(--hero-accent);outline-offset:-1px}
-  .hero-note{margin:12px 0 0;font-size:12px;color:var(--hero-faint)}
+  .hero-note{margin:11px 0 0;font-size:12px;color:var(--hero-faint);max-width:60ch}
   .hero-note.ok{color:var(--hero-down);font-weight:600}
   .hero-note.bad{color:var(--hero-up);font-weight:600}
 
+  /* ============ STICKY BAR ============ */
   .masthead{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;
     background:color-mix(in srgb,var(--ground) 88%,transparent);
     backdrop-filter:blur(12px);border-bottom:1px solid var(--edge)}
@@ -130,7 +163,7 @@
   .sweep{margin-left:auto;font-family:"IBM Plex Mono",monospace;font-size:11px;
     color:var(--ink-faint);letter-spacing:.02em}
 
-  main{padding-block:26px 56px}
+  main{padding-block:24px 56px}
 
   .alarm{display:flex;align-items:center;gap:14px;flex-wrap:wrap;
     background:var(--surface);border:1px solid var(--edge);
@@ -189,6 +222,7 @@
   .entry[data-t="policy"]{border-left-color:var(--policy)}
   .entry.rise{animation:rise .34s cubic-bezier(.22,.9,.3,1) both}
   @keyframes rise{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
+  .entry.mine{box-shadow:inset 3px 0 0 -1px var(--accent)}
 
   .entry-top{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
   .chip{font-family:"IBM Plex Mono",monospace;font-size:10px;font-weight:600;
@@ -199,6 +233,9 @@
   .chip[data-t="removal"]{background:var(--removal-soft);color:var(--removal)}
   .chip[data-t="policy"]{background:var(--policy-soft);color:var(--policy)}
   .vendor{font-size:12px;font-weight:600;color:var(--ink-mid)}
+  .yours{font-family:"IBM Plex Mono",monospace;font-size:9px;font-weight:600;letter-spacing:.09em;
+    color:var(--accent);border:1px solid color-mix(in srgb,var(--accent) 40%,transparent);
+    padding:1px 5px;border-radius:2px}
   .flag{font-family:"IBM Plex Mono",monospace;font-size:9px;font-weight:600;letter-spacing:.08em;
     color:var(--ink-faint);border:1px dashed var(--edge);padding:1px 5px;border-radius:2px}
   .clock{margin-left:auto;font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;
@@ -216,27 +253,32 @@
   .cite{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-faint);
     display:flex;gap:10px;flex-wrap:wrap;align-items:baseline}
   .cite a{color:var(--accent);text-decoration:none;
-    border-bottom:1px solid color-mix(in srgb,var(--accent) 35%,transparent)}
+    border-bottom:1px solid color-mix(in srgb,var(--accent) 35%,transparent);word-break:break-word}
   .cite a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 
   .empty{border:1px dashed var(--edge);border-radius:3px;padding:34px 18px;text-align:center;
     color:var(--ink-faint);font-size:13px}
 
-  .colophon{margin-top:34px;padding-top:16px;border-top:1px solid var(--edge);
-    font-size:12px;color:var(--ink-faint);line-height:1.6;max-width:70ch}
-  .colophon strong{color:var(--ink-mid);font-weight:600}
+  /* ============ METHOD ============ */
+  .method{margin-top:40px;padding-top:22px;border-top:1px solid var(--edge)}
+  .method h2{font-family:Archivo,sans-serif;font-size:12px;font-weight:700;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--ink-faint);margin:0 0 14px}
+  .method-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:18px}
+  .method-item h3{margin:0 0 5px;font-family:Archivo,sans-serif;font-size:14px;font-weight:600}
+  .method-item p{margin:0;font-size:13px;color:var(--ink-mid);line-height:1.55}
+  .method-item code{font-family:"IBM Plex Mono",monospace;font-size:11.5px;
+    background:var(--sunk);padding:1px 5px;border-radius:2px}
+  .colophon{margin-top:24px;font-size:12px;color:var(--ink-faint);line-height:1.65;max-width:72ch}
   .colophon a{color:var(--accent)}
-
-  .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
   @media (prefers-reduced-motion:reduce){
     .eyebrow .dot{animation:none}
     .entry.rise{animation:none}
-    .entry:hover{transform:none}
-    .btn-primary:hover{transform:none}
+    .entry:hover,.btn-primary:hover,.tool:hover{transform:none}
   }
   @media (max-width:460px){
-    .hero-inner{padding-block:40px 34px}
+    .hero-inner{padding-block:38px 32px}
+    .figure .n{font-size:38px}
     .alarm-clock{font-size:25px}
     .entry h3{font-size:14.5px}
     .clock{margin-left:0}
@@ -254,7 +296,21 @@
       land on your invoice and never make the news. <b>Every entry cites the vendor page it came
       from and that page&rsquo;s date.</b>
     </p>
-    <div class="tape" id="tape"></div>
+
+    <p class="ask">Which of these do you pay for? <span id="askHint">Tap to see what hit you</span></p>
+    <div class="picker" id="picker" role="group" aria-label="Select the tools you pay for"></div>
+
+    <section class="readout" id="readout" aria-live="polite">
+      <div class="readout-head">
+        <div class="figure">
+          <span class="n" id="figureN">&mdash;</span>
+          <span class="cap" id="figureCap">changes logged</span>
+        </div>
+        <p class="lede" id="readoutLede"></p>
+      </div>
+      <div class="breakdown" id="breakdown"></div>
+    </section>
+
     <div class="hero-cta">
       <form class="hero-form" id="signupForm" hidden>
         <label class="sr" for="signupEmail">Email address</label>
@@ -263,7 +319,7 @@
       </form>
       <a class="btn btn-ghost" href="#feed">See every change</a>
     </div>
-    <p class="hero-note" id="signupNote" hidden>One email when something changes. Quiet weeks stay quiet.</p>
+    <p class="hero-note" id="signupNote" hidden></p>
   </div>
 </section>
 
@@ -292,13 +348,36 @@
 
   <div class="feed" id="feed"></div>
 
-  <p class="colophon">
-    <strong>Open data.</strong> The feed is JSON in a public repository, one file per change,
-    appended to daily. Corrections are pull requests. Anything not confirmed on a primary source
-    is stamped UNVERIFIED rather than dropped. A quiet week produces no entries &mdash; that is a
-    correct result, not a gap.
-    <a href="https://github.com/theajitnayak/breaking-change-radar">Source and data on GitHub</a>.
-  </p>
+  <section class="method">
+    <h2>How this is built</h2>
+    <div class="method-grid">
+      <div class="method-item">
+        <h3>Primary sources or nothing</h3>
+        <p>Every entry carries the vendor page it came from and that page&rsquo;s publish date.
+        No number appears here that was not printed on a page someone opened.</p>
+      </div>
+      <div class="method-item">
+        <h3>Doubt is published, not hidden</h3>
+        <p>What cannot be confirmed against a vendor&rsquo;s own page is still logged and stamped
+        <code>UNVERIFIED</code>. A low-confidence item you can check beats a confident one you cannot.</p>
+      </div>
+      <div class="method-item">
+        <h3>Quiet weeks stay quiet</h3>
+        <p>A week with no qualifying change produces no entries. Nothing here is padded to look busy,
+        and the commit history shows the gaps.</p>
+      </div>
+      <div class="method-item">
+        <h3>Open data, correctable</h3>
+        <p>The feed is one JSON file per change in a public repository. If something is wrong,
+        the fix is a pull request rather than an email to me.</p>
+      </div>
+    </div>
+    <p class="colophon">
+      Swept daily against vendor changelogs, pricing pages and billing docs.
+      <a href="https://github.com/theajitnayak/breaking-change-radar">Source and data on GitHub</a>
+      &middot; maintained by <a href="https://github.com/theajitnayak">Ajit Nayak</a>.
+    </p>
+  </section>
 </main>
 
 <script>
@@ -312,7 +391,18 @@
     { t: "down",     label: "Costs less" },
     { t: "policy",   label: "Policy" }
   ];
+  var TONE_LABEL = {};
+  TONES.forEach(function (x) { TONE_LABEL[x.t] = x.label; });
 
+  // Shorter names for the picker. Anything not listed uses the vendor string.
+  var SHORT = {
+    "Anthropic API": "Anthropic",
+    "Google Gemini API": "Gemini",
+    "GitHub Copilot": "Copilot",
+    "Model Context Protocol": "MCP"
+  };
+
+  var STORE_KEY = "bcr.tools.v1";
   var DAY = 864e5;
   var now = new Date();
   var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
@@ -324,9 +414,7 @@
     return parseDay(s).toLocaleDateString(undefined, { month: "long", day: "numeric", year: "numeric" });
   }
   var ESCAPES = { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" };
-  function esc(s) {
-    return String(s).replace(/[&<>"']/g, function (c) { return ESCAPES[c]; });
-  }
+  function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return ESCAPES[c]; }); }
   function toneOf(item) {
     if (item.kind === "removal") return "removal";
     if (item.direction === "up") return "up";
@@ -335,71 +423,178 @@
     return "policy";
   }
   function host(u) { return String(u).replace(/^https?:\/\//, "").split("/")[0]; }
-  function money(n) {
-    var s = n.toFixed(n < 1 ? 3 : 2);
-    if (s.indexOf(".") > -1) { s = s.replace(/0+$/, ""); s = s.replace(/\.$/, ""); }
-    return s;
+  function plural(n, one, many) { return n === 1 ? one : many; }
+
+  function loadPicked() {
+    try {
+      var raw = window.localStorage.getItem(STORE_KEY);
+      return raw ? JSON.parse(raw) : [];
+    } catch (e) { return []; }
+  }
+  function savePicked(list) {
+    try { window.localStorage.setItem(STORE_KEY, JSON.stringify(list)); } catch (e) { /* fine */ }
   }
 
   var ITEMS = [];
-  var active = null;
+  var VENDORS = [];
+  var picked = [];
+  var activeTone = null;
 
-  var feedEl   = document.getElementById("feed");
-  var rollupEl = document.getElementById("rollup");
-  var resetEl  = document.getElementById("reset");
-  var scopeEl  = document.getElementById("scopeLabel");
-  var tapeEl   = document.getElementById("tape");
+  var feedEl    = document.getElementById("feed");
+  var rollupEl  = document.getElementById("rollup");
+  var resetEl   = document.getElementById("reset");
+  var scopeEl   = document.getElementById("scopeLabel");
+  var pickerEl  = document.getElementById("picker");
+  var readoutEl = document.getElementById("readout");
+  var figureN   = document.getElementById("figureN");
+  var figureCap = document.getElementById("figureCap");
+  var ledeEl    = document.getElementById("readoutLede");
+  var breakEl   = document.getElementById("breakdown");
+  var askHint   = document.getElementById("askHint");
 
-  function buildTape() {
-    var withDelta = ITEMS.filter(function (i) { return i.delta; }).slice(0, 3);
-    if (!withDelta.length) return;
+  function mine() {
+    if (!picked.length) return [];
+    return ITEMS.filter(function (i) { return picked.indexOf(i.vendor) > -1; });
+  }
 
-    withDelta.forEach(function (item, idx) {
-      var d = item.delta;
-      var card = document.createElement("div");
-      card.className = "tape-card";
-      card.dataset.d = item.direction;
+  function countTo(el, target) {
+    if (reduced) { el.textContent = target; return; }
+    var from = parseInt(el.textContent, 10);
+    if (isNaN(from)) from = 0;
+    if (from === target) { el.textContent = target; return; }
+    var t0 = null, dur = 420;
+    requestAnimationFrame(function step(ts) {
+      if (t0 === null) t0 = ts;
+      var p = Math.min((ts - t0) / dur, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(from + (target - from) * eased);
+      if (p < 1) requestAnimationFrame(step);
+      else el.textContent = target;
+    });
+  }
 
-      var unknown = (d.to === null || d.to === undefined);
-      var toText  = unknown ? "?" : d.prefix + money(d.to);
+  function nextDeadline(list) {
+    return list
+      .filter(function (i) { return i.effective && daysUntil(i.effective) >= 0; })
+      .sort(function (a, b) { return daysUntil(a.effective) - daysUntil(b.effective); })[0];
+  }
 
-      card.innerHTML =
-        "<div class=\"tape-label\">" + esc(d.label) + "</div>" +
-        "<div class=\"tape-row\">" +
-          "<span class=\"tape-from\">" + esc(d.prefix + money(d.from)) + "</span>" +
-          "<span class=\"tape-arrow\" aria-hidden=\"true\">&rarr;</span>" +
-          "<span class=\"tape-to\">" + esc(toText) + "</span>" +
-          "<span class=\"tape-unit\">" + esc(d.unit) + "</span>" +
-        "</div>";
+  function renderReadout() {
+    var list = picked.length ? mine() : ITEMS;
+    var personal = picked.length > 0;
 
-      tapeEl.appendChild(card);
-      if (reduced || unknown) return;
+    var byTone = {};
+    TONES.forEach(function (x) { byTone[x.t] = 0; });
+    list.forEach(function (i) { byTone[toneOf(i)]++; });
 
-      var el = card.querySelector(".tape-to");
-      var from = d.from, to = d.to, t0 = null, dur = 900 + idx * 120;
-      el.textContent = d.prefix + money(from);
-      requestAnimationFrame(function step(ts) {
-        if (t0 === null) t0 = ts;
-        var p = Math.min((ts - t0) / dur, 1);
-        var eased = 1 - Math.pow(1 - p, 3);
-        el.textContent = d.prefix + money(from + (to - from) * eased);
-        if (p < 1) requestAnimationFrame(step);
-        else el.textContent = d.prefix + money(to);
+    countTo(figureN, list.length);
+    figureCap.textContent = personal
+      ? plural(list.length, "change hits you", "changes hit you")
+      : "changes logged";
+    readoutEl.className = personal && (byTone.up + byTone.variable) > 0 ? "readout hot" : "readout";
+
+    var soon = nextDeadline(list);
+    var html;
+
+    if (!personal) {
+      html = "Tick the tools above and this becomes <b>your</b> exposure instead of everyone&rsquo;s. " +
+             "Nothing is stored anywhere but your own browser, and no email is needed to see it.";
+    } else if (!list.length) {
+      html = "Nothing logged against your tools yet. That is a real answer, not an empty state — " +
+             "the tracker covers " + ITEMS.length + " changes and none of them touch what you pay for.";
+    } else {
+      var costly = byTone.up + byTone.variable;
+      html = "Across " + picked.length + " " + plural(picked.length, "tool", "tools") + ", <b>" +
+             list.length + " " + plural(list.length, "change", "changes") + "</b> " +
+             plural(list.length, "affects", "affect") + " what you pay or what you are allowed to use";
+      if (costly > 0) {
+        html += ", and <b>" + costly + "</b> of " + plural(list.length, "it", "them") +
+                " " + plural(costly, "makes", "make") + " your bill go up or become unpredictable";
+      }
+      html += ".";
+      if (soon) {
+        var d = daysUntil(soon.effective);
+        html += " The next one lands in <span class=\"warn\">" + d + " " +
+                plural(d, "day", "days") + "</span> — " + esc(soon.vendor) +
+                ", " + longDate(soon.effective) + ".";
+      }
+    }
+    ledeEl.innerHTML = html;
+
+    breakEl.textContent = "";
+    var any = false;
+    TONES.forEach(function (x) {
+      if (!byTone[x.t]) return;
+      any = true;
+      var s = document.createElement("span");
+      s.className = "stat";
+      s.dataset.t = x.t;
+      s.innerHTML = "<b>" + byTone[x.t] + "</b> " + x.label.toLowerCase();
+      breakEl.appendChild(s);
+    });
+    breakEl.hidden = !any;
+
+    // The email ask only earns its place once it has something to watch.
+    var form = document.getElementById("signupForm");
+    var note = document.getElementById("signupNote");
+    var btn  = document.getElementById("signupBtn");
+    if (ALERTS_ENDPOINT) {
+      form.hidden = false;
+      note.hidden = false;
+      if (!form.dataset.sent) {
+        btn.textContent = personal ? "Watch my " + picked.length + " " + plural(picked.length, "tool", "tools") : "Alert me";
+        note.className = "hero-note";
+        note.textContent = personal
+          ? "One email when any of these " + picked.length + " change what they charge. Nothing on a quiet week."
+          : "One email when a tool you pay for changes its pricing, credits or limits. Nothing on a quiet week.";
+      }
+    }
+
+    askHint.textContent = personal
+      ? picked.length + " selected · saved on this device"
+      : "Tap to see what hit you";
+  }
+
+  function buildPicker() {
+    var counts = {};
+    ITEMS.forEach(function (i) { counts[i.vendor] = (counts[i.vendor] || 0) + 1; });
+    VENDORS = Object.keys(counts).sort(function (a, b) {
+      return counts[b] - counts[a] || a.localeCompare(b);
+    });
+
+    pickerEl.textContent = "";
+    VENDORS.forEach(function (v) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "tool";
+      b.dataset.vendor = v;
+      b.setAttribute("aria-pressed", picked.indexOf(v) > -1 ? "true" : "false");
+      b.innerHTML =
+        "<svg class=\"tick\" viewBox=\"0 0 16 16\" aria-hidden=\"true\" fill=\"none\" " +
+        "stroke=\"currentColor\" stroke-width=\"2.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\">" +
+        "<path d=\"M3.5 8.5l3 3 6-7\"/></svg>" + esc(SHORT[v] || v);
+      b.addEventListener("click", function () {
+        var at = picked.indexOf(v);
+        if (at > -1) picked.splice(at, 1); else picked.push(v);
+        b.setAttribute("aria-pressed", at > -1 ? "false" : "true");
+        savePicked(picked);
+        renderReadout();
+        render();
       });
+      pickerEl.appendChild(b);
     });
   }
 
   function buildRollup() {
     rollupEl.textContent = "";
     TONES.forEach(function (tone) {
-      var n = ITEMS.filter(function (i) { return toneOf(i) === tone.t; }).length;
       var b = document.createElement("button");
       b.type = "button";
       b.dataset.t = tone.t;
       b.setAttribute("aria-pressed", "false");
-      b.innerHTML = "<span class=\"n\">" + n + "</span><span class=\"k\">" + tone.label + "</span>";
+      b.innerHTML = "<span class=\"n\">0</span><span class=\"k\">" + tone.label + "</span>";
       b.addEventListener("click", function () {
-        active = active === tone.t ? null : tone.t;
+        activeTone = activeTone === tone.t ? null : tone.t;
         render();
       });
       rollupEl.appendChild(b);
@@ -407,13 +602,11 @@
   }
 
   function buildAlarm() {
-    var live = ITEMS
-      .filter(function (i) { return i.effective && daysUntil(i.effective) >= 0; })
-      .sort(function (a, b) { return daysUntil(a.effective) - daysUntil(b.effective); })[0];
+    var live = nextDeadline(ITEMS);
     if (!live) return;
     var d = daysUntil(live.effective);
     document.getElementById("alarmClock").innerHTML =
-      d + "<span>" + (d === 1 ? "day left" : "days left") + "</span>";
+      d + "<span>" + plural(d, "day left", "days left") + "</span>";
     document.getElementById("alarmTitle").textContent = live.title;
     document.getElementById("alarmNote").textContent =
       live.vendor + " · takes effect " + longDate(live.effective);
@@ -422,15 +615,15 @@
 
   function entryNode(item) {
     var tone = toneOf(item);
+    var isMine = picked.indexOf(item.vendor) > -1;
     var el = document.createElement("article");
-    el.className = "entry";
+    el.className = "entry" + (isMine ? " mine" : "");
     el.dataset.t = tone;
 
-    var label = TONES.filter(function (x) { return x.t === tone; })[0].label;
-
     var top = "<div class=\"entry-top\">" +
-      "<span class=\"chip\" data-t=\"" + tone + "\">" + esc(label) + "</span>" +
+      "<span class=\"chip\" data-t=\"" + tone + "\">" + esc(TONE_LABEL[tone]) + "</span>" +
       "<span class=\"vendor\">" + esc(item.vendor) + "</span>" +
+      (isMine ? "<span class=\"yours\">YOURS</span>" : "") +
       (item.confidence === "unverified" ? "<span class=\"flag\">UNVERIFIED</span>" : "");
 
     if (item.effective) {
@@ -457,24 +650,36 @@
   }
 
   function render() {
-    var rows = active ? ITEMS.filter(function (i) { return toneOf(i) === active; }) : ITEMS.slice();
+    var base = picked.length ? mine() : ITEMS;
+    var rows = activeTone ? base.filter(function (i) { return toneOf(i) === activeTone; }) : base.slice();
     rows.sort(function (a, b) { return parseDay(b.date) - parseDay(a.date); });
 
+    var byTone = {};
+    TONES.forEach(function (x) { byTone[x.t] = 0; });
+    base.forEach(function (i) { byTone[toneOf(i)]++; });
+
     Array.prototype.forEach.call(rollupEl.children, function (b) {
-      b.setAttribute("aria-pressed", String(b.dataset.t === active));
+      b.setAttribute("aria-pressed", String(b.dataset.t === activeTone));
+      b.querySelector(".n").textContent = byTone[b.dataset.t];
     });
 
-    resetEl.hidden = !active;
-    var lbl = active ? TONES.filter(function (x) { return x.t === active; })[0].label : null;
-    scopeEl.textContent = active
-      ? lbl + " — " + rows.length + " of " + ITEMS.length
+    resetEl.hidden = !activeTone && !picked.length;
+    resetEl.textContent = activeTone ? "Clear filter" : "Show every vendor";
+
+    var scopeBits = [];
+    if (picked.length) scopeBits.push("Your " + picked.length + " " + plural(picked.length, "tool", "tools"));
+    if (activeTone) scopeBits.push(TONE_LABEL[activeTone].toLowerCase());
+    scopeEl.textContent = scopeBits.length
+      ? scopeBits.join(" · ") + " — " + rows.length + " of " + ITEMS.length
       : "All changes — " + ITEMS.length + " tracked";
 
     feedEl.textContent = "";
     if (!rows.length) {
       var e = document.createElement("div");
       e.className = "empty";
-      e.textContent = "Nothing in this lane. That is a valid result, not a gap.";
+      e.textContent = picked.length
+        ? "Nothing logged against your tools in this lane. That is a valid result, not a gap."
+        : "Nothing in this lane. That is a valid result, not a gap.";
       feedEl.appendChild(e);
       return;
     }
@@ -500,11 +705,19 @@
     });
   }
 
-  resetEl.addEventListener("click", function () { active = null; render(); });
+  resetEl.addEventListener("click", function () {
+    if (activeTone) { activeTone = null; }
+    else {
+      picked = [];
+      savePicked(picked);
+      Array.prototype.forEach.call(pickerEl.children, function (b) {
+        b.setAttribute("aria-pressed", "false");
+      });
+      renderReadout();
+    }
+    render();
+  });
 
-  // Paste the Buttondown form endpoint here to switch signup on. While it is
-  // empty the form stays hidden, so the site never shows a form that quietly
-  // drops people.
   var ALERTS_ENDPOINT = "https://buttondown.com/api/emails/embed-subscribe/ajit_kumar";
 
   (function wireSignup() {
@@ -512,34 +725,32 @@
     var form = document.getElementById("signupForm");
     var btn  = document.getElementById("signupBtn");
     var note = document.getElementById("signupNote");
-    var resting = note.textContent;
-    form.hidden = false;
-    note.hidden = false;
 
     form.addEventListener("submit", function (ev) {
       ev.preventDefault();
       var email = document.getElementById("signupEmail").value.trim();
       if (!email) return;
+      var label = btn.textContent;
       btn.disabled = true;
       btn.textContent = "Sending";
-      note.className = "hero-note";
-      note.textContent = resting;
 
       var body = new FormData();
       body.append("email", email);
+      if (picked.length) body.append("metadata__tools", picked.join(", "));
 
       fetch(ALERTS_ENDPOINT, { method: "POST", body: body })
         .then(function (r) {
-          // The endpoint sends Access-Control-Allow-Origin, so a real status is
-          // readable here. Never report success on a response we cannot verify.
+          // The endpoint sends Access-Control-Allow-Origin, so the real status is
+          // readable. Never report success on a response we cannot verify.
           if (!r.ok) throw new Error("HTTP " + r.status);
+          form.dataset.sent = "1";
           form.hidden = true;
           note.className = "hero-note ok";
-          note.textContent = "Done. Check your inbox to confirm.";
+          note.textContent = "Done. Check your inbox to confirm, and you are on the list.";
         })
         .catch(function () {
           btn.disabled = false;
-          btn.textContent = "Alert me";
+          btn.textContent = label;
           note.className = "hero-note bad";
           note.textContent = "That did not go through. Try again in a moment.";
         });
@@ -554,18 +765,27 @@
     .then(function (d) {
       ITEMS = d.items || [];
       document.getElementById("sweep").textContent = "updated " + (d.updated || "—");
-      var vendors = {};
-      ITEMS.forEach(function (i) { vendors[i.vendor] = 1; });
-      document.getElementById("eyebrowText").textContent =
-        Object.keys(vendors).length + " vendors · " + ITEMS.length + " changes logged";
-      buildTape();
+
+      var vendorSet = {};
+      ITEMS.forEach(function (i) { vendorSet[i.vendor] = 1; });
+      var soon = nextDeadline(ITEMS);
+      var eyebrow = Object.keys(vendorSet).length + " vendors · " + ITEMS.length + " changes logged";
+      if (soon) eyebrow += " · next lands in " + daysUntil(soon.effective) + "d";
+      document.getElementById("eyebrowText").textContent = eyebrow;
+
+      // Only keep stored picks that still exist in the data.
+      picked = loadPicked().filter(function (v) { return vendorSet[v]; });
+
+      buildPicker();
       buildRollup();
       buildAlarm();
+      renderReadout();
       render();
     })
     .catch(function (err) {
       document.getElementById("sweep").textContent = "feed unavailable";
       scopeEl.textContent = "Feed unavailable";
+      readoutEl.hidden = true;
       feedEl.innerHTML = "<div class=\"empty\">Could not load <code>data/changes.json</code> (" +
         esc(err.message) + "). Serve the folder over HTTP rather than opening it from disk.</div>";
     });
