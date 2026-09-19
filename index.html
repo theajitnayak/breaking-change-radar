@@ -505,7 +505,7 @@
   // Paste the Buttondown form endpoint here to switch signup on. While it is
   // empty the form stays hidden, so the site never shows a form that quietly
   // drops people.
-  var ALERTS_ENDPOINT = "";
+  var ALERTS_ENDPOINT = "https://buttondown.com/api/emails/embed-subscribe/ajit_kumar";
 
   (function wireSignup() {
     if (!ALERTS_ENDPOINT) return;
@@ -528,8 +528,11 @@
       var body = new FormData();
       body.append("email", email);
 
-      fetch(ALERTS_ENDPOINT, { method: "POST", body: body, mode: "no-cors" })
-        .then(function () {
+      fetch(ALERTS_ENDPOINT, { method: "POST", body: body })
+        .then(function (r) {
+          // The endpoint sends Access-Control-Allow-Origin, so a real status is
+          // readable here. Never report success on a response we cannot verify.
+          if (!r.ok) throw new Error("HTTP " + r.status);
           form.hidden = true;
           note.className = "hero-note ok";
           note.textContent = "Done. Check your inbox to confirm.";
