@@ -1,0 +1,17 @@
+{
+  "id": "copilot-code-review-multiplier",
+  "vendor": "GitHub Copilot",
+  "kind": "limit",
+  "direction": "up",
+  "date": "2026-06-01",
+  "effective": "2026-06-01",
+  "title": "Copilot code review costs 13 premium requests per review instead of 1",
+  "detail": "From June 1, 2026 Copilot code review carries a model multiplier of 13. Every pull request review, and every code review inside the IDE, takes 13 from the monthly premium request quota. Model multipliers rose across the board on the same date for annual plan holders still on request-based billing.",
+  "impact": "If you wired Copilot review into CI or made it a habit on every pull request, your quota now drains thirteen times faster for that workflow. Developers summarised the change as getting less for the same price. Check whether review is worth 13x against your own quota before leaving it switched on for every PR.",
+  "delta": { "label": "Copilot code review", "from": 1, "to": 13, "unit": "/review", "prefix": "x" },
+  "confidence": "verified",
+  "sources": [
+    { "url": "https://docs.github.com/en/copilot/reference/copilot-billing/request-based-billing-legacy/model-multipliers-for-annual-plans", "published": "2026" },
+    { "url": "https://visualstudiomagazine.com/articles/2026/04/27/devs-sound-off-on-usage-based-copilot-pricing-change-you-will-get-less-but-pay-the-same-price.aspx", "published": "2026-04-27" }
+  ]
+}

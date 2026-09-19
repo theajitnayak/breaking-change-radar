@@ -1,0 +1,16 @@
+{
+  "id": "copilot-usage-based-billing",
+  "vendor": "GitHub Copilot",
+  "kind": "pricing",
+  "direction": "variable",
+  "date": "2026-06-01",
+  "effective": "2026-06-01",
+  "title": "Copilot replaced Premium Request Units with AI Credits metered on token consumption",
+  "detail": "From June 1, 2026 Copilot plans bill on usage. Premium Request Units are gone and GitHub AI Credits, tied to tokens consumed, took their place. Monthly plans are Pro at $10 including $15 of credits, Pro Plus at $39 including $70, and Max at $100 including $200. Code completions and next-edit suggestions stay unlimited on paid plans, but chat, agents, Copilot CLI, Spaces and Spark all draw down the allowance or bill on top. Annual Pro and Pro Plus customers stay on request-based pricing until their plan expires.",
+  "impact": "A fixed request budget became a variable token bill. The same amount of work now costs different amounts depending on context size, so a large repository is more expensive to work in than a small one at identical effort.",
+  "confidence": "verified",
+  "sources": [
+    { "url": "https://docs.github.com/en/copilot/reference/copilot-billing/request-based-billing-legacy/copilot-requests", "published": "2026" },
+    { "url": "https://usagebox.com/articles/github-copilot-usage-based-billing-2026", "published": "2026" }
+  ]
+}

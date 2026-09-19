@@ -1,0 +1,16 @@
+{
+  "id": "bolt-pro-token-bump",
+  "vendor": "Bolt",
+  "kind": "pricing",
+  "direction": "down",
+  "date": "2026-05-05",
+  "effective": null,
+  "title": "Bolt raised Pro tokens 30 percent from 10M to 13M with no price increase",
+  "detail": "On May 5, 2026 the Bolt Pro tier went from 10 million to 13 million monthly tokens at the same price. The free plan runs on 1 million tokens per month against a separate daily cap, and sources disagree on whether that daily cap is currently 150K or 300K, so it is not stated here as fact.",
+  "impact": "More headroom for the same money, which is rare enough in this list to be worth noting. Bolt bills by token, so cost still scales with codebase size rather than with how many prompts you send.",
+  "confidence": "unverified",
+  "sources": [
+    { "url": "https://customaidashboard.com/blog/bolt-new-pricing-changes-2026", "published": "2026" },
+    { "url": "https://www.nocode.mba/articles/bolt-pricing-2026", "published": "2026-08-16" }
+  ]
+}

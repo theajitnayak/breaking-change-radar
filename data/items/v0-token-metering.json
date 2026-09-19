@@ -1,0 +1,16 @@
+{
+  "id": "v0-token-metering",
+  "vendor": "v0",
+  "kind": "pricing",
+  "direction": "variable",
+  "date": "2026-02-01",
+  "effective": null,
+  "title": "v0 moved from fixed message counts to metering actual input and output tokens",
+  "detail": "v0 previously charged a fixed number of credits per message. It now meters the real input and output tokens each generation consumes and converts those to credits, so longer prompts, attachments, source files and larger outputs all cost more. Sources place the switch in February 2026 without publishing an exact day, so this entry is dated to the start of that month.",
+  "impact": "Cost now scales with how big your project is, not how many times you ask. The same request against a large codebase costs more than against a small one, which makes credit burn accelerate as a project grows rather than staying flat.",
+  "confidence": "unverified",
+  "sources": [
+    { "url": "https://vercel.com/blog/updated-v0-pricing", "published": "2026" },
+    { "url": "https://www.usecarly.com/blog/v0-pricing-explained/", "published": "2026" }
+  ]
+}
