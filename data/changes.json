@@ -4,6 +4,36 @@
   "updated": "2026-09-19",
   "items": [
     {
+      "id": "vercel-spend-management-enterprise-flex",
+      "vendor": "Vercel",
+      "kind": "policy",
+      "direction": "neutral",
+      "date": "2026-09-18",
+      "effective": null,
+      "title": "Vercel extended Spend Management budget controls to Enterprise Flexible Commitment plans",
+      "detail": "Spend Management, previously available on Pro, is now included at no additional cost for Enterprise teams on Flexible Commitment plans. Admins can set a budget per billing cycle; when metered usage approaches or crosses it, Spend Management can send email notifications, trigger a webhook, or pause the production deployments of all projects. Setting a budget does not pause usage on its own, and pausing does not stop AI Gateway or v0 usage.",
+      "impact": "If your Enterprise plan is Flexible Commitment rather than a fixed contract, you now have the same opt-in cost-capping tools Pro customers have had. It only pauses project deployments, so a spend spike coming from AI Gateway or v0 keeps billing even with a budget pause enabled.",
+      "confidence": "verified",
+      "sources": [
+        { "url": "https://vercel.com/changelog/spend-management-enterprise-flex", "published": "2026-09-18" }
+      ]
+    },
+    {
+      "id": "github-copilot-model-deprecation-oct19",
+      "vendor": "GitHub Copilot",
+      "kind": "removal",
+      "direction": "neutral",
+      "date": "2026-09-18",
+      "effective": "2026-10-19",
+      "title": "GitHub Copilot will drop six more models on October 19, including GPT-5.5 and GPT-5.4",
+      "detail": "Gemini 3.7 Flash, GPT-5.5, GPT-5.4, GPT-5.4 mini, GPT-5 mini and Grok 4.5 are deprecated across all Copilot experiences (Chat, inline edits, ask and agent modes, code completions) on October 19, 2026. Suggested replacements are Gemini 3.8 Flash, GPT-5.6 Sol, GPT-5.6 Luna and Grok 4.6. For Enterprise and Business customers the replacement models are auto-enabled unless an admin has disabled default model enablement.",
+      "impact": "A second Copilot model cutoff inside two months, on GitHub's own schedule rather than the model vendors'. Anything pinned to GPT-5.5, GPT-5.4, GPT-5.4 mini, GPT-5 mini, Gemini 3.7 Flash or Grok 4.5 through the Copilot layer stops resolving on October 19 regardless of that model's status on the vendor's own API.",
+      "confidence": "verified",
+      "sources": [
+        { "url": "https://github.blog/changelog/2026-09-18-upcoming-deprecation-of-selected-github-copilot-models-in-mid-october", "published": "2026-09-18" }
+      ]
+    },
+    {
       "id": "openai-gpt5-o3-snapshot-removal",
       "vendor": "OpenAI",
       "kind": "removal",

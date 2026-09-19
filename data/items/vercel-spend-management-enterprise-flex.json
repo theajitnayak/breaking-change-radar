@@ -1,0 +1,15 @@
+{
+  "id": "vercel-spend-management-enterprise-flex",
+  "vendor": "Vercel",
+  "kind": "policy",
+  "direction": "neutral",
+  "date": "2026-09-18",
+  "effective": null,
+  "title": "Vercel extended Spend Management budget controls to Enterprise Flexible Commitment plans",
+  "detail": "Spend Management, previously available on Pro, is now included at no additional cost for Enterprise teams on Flexible Commitment plans. Admins can set a budget per billing cycle; when metered usage approaches or crosses it, Spend Management can send email notifications, trigger a webhook, or pause the production deployments of all projects. Setting a budget does not pause usage on its own, and pausing does not stop AI Gateway or v0 usage.",
+  "impact": "If your Enterprise plan is Flexible Commitment rather than a fixed contract, you now have the same opt-in cost-capping tools Pro customers have had. It only pauses project deployments, so a spend spike coming from AI Gateway or v0 keeps billing even with a budget pause enabled.",
+  "confidence": "verified",
+  "sources": [
+    { "url": "https://vercel.com/changelog/spend-management-enterprise-flex", "published": "2026-09-18" }
+  ]
+}
