@@ -1,0 +1,16 @@
+{
+  "id": "anthropic-opus-5-5-price-cut",
+  "vendor": "Anthropic API",
+  "kind": "pricing",
+  "direction": "down",
+  "date": "2026-09-22",
+  "effective": "2026-09-22",
+  "title": "Claude Opus 5.5 launches at $4 / $20 per MTok, 20% below Opus 5",
+  "detail": "Anthropic released Claude Opus 5.5 (claude-opus-5-5) on September 22, 2026, priced at $4 input / $20 output per million tokens, versus $5 / $25 for Claude Opus 5. Cache reads drop to $0.20 per MTok from $0.50, and 1-hour cache writes fall to $8 from $10. It ships with a 1M token context window by default, 128k max output tokens, and always-on adaptive thinking. Fast mode for Opus 5.5 is priced at $8 / $40 per MTok, versus $10 / $50 for fast mode on Opus 5. Opus 5.5 is available on the Claude API, Claude in Amazon Bedrock, Claude Platform on AWS, Claude on Google Cloud, and Claude in Microsoft Foundry.",
+  "impact": "Anyone already paying Opus 5 rates gets a like-for-like model at a 20% lower list price on both input and output tokens, plus cheaper caching, without switching plans. Existing Opus 5 deployments keep working at the old $5/$25 rate since Opus 5 was not deprecated alongside this launch.",
+  "confidence": "verified",
+  "sources": [
+    { "url": "https://platform.claude.com/docs/en/release-notes/overview", "published": "2026-09-22" },
+    { "url": "https://platform.claude.com/docs/en/about-claude/pricing", "published": "2026-09-22" }
+  ]
+}

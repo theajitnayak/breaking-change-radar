@@ -1,0 +1,16 @@
+{
+  "id": "vercel-grok-4-7-gateway-discount",
+  "vendor": "Vercel",
+  "kind": "pricing",
+  "direction": "down",
+  "date": "2026-09-21",
+  "effective": "2026-09-27",
+  "title": "Vercel AI Gateway cuts Grok 4.7 price 40% for one week",
+  "detail": "Vercel added Grok 4.7 (spacexai/grok-4.7) to AI Gateway on September 21, 2026, with a 40% discount on input and output tokens that applies automatically through September 27. Discounted pricing is $1.20 per million input tokens and $3.60 per million output tokens. The model has a 500K token context window and is reachable through the AI SDK, the OpenAI-compatible Chat Completions API, and coding agents connected to AI Gateway, including fx, Cursor, Codex, Amp, and OpenCode.",
+  "impact": "Anyone routing coding-agent traffic to Grok 4.7 through Vercel AI Gateway pays 40% less per token through September 27, with no code change needed since the discount is automatic. The rate reverts to standard pricing after that date unless Vercel extends it.",
+  "confidence": "verified",
+  "sources": [
+    { "url": "https://vercel.com/changelog/grok-4-7-now-available-and-40-off-on-ai-gateway-fx-eve", "published": "2026-09-21" },
+    { "url": "https://vercel.com/ai-gateway/models/grok-4.7", "published": "2026-09-21" }
+  ]
+}
