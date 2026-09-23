@@ -1,0 +1,15 @@
+{
+  "id": "claude-five-hour-limit-increase",
+  "vendor": "Claude Code",
+  "kind": "limit",
+  "direction": "down",
+  "date": "2026-09-22",
+  "effective": null,
+  "title": "Anthropic raises five-hour usage limits on Pro, Max, Team and seat-based Enterprise plans",
+  "detail": "In the Claude Opus 5.5 announcement on September 22, 2026, Anthropic stated that it is increasing five-hour usage limits on Pro, Max, Team, and seat-based Enterprise plans, and that subscription users are being given a rate limit reset which can be saved and used at a time of the subscriber choosing. Anthropic published no figures for the size of the increase, no before and after numbers, and no date on which the higher limits take effect. The announcement does not say whether weekly limits change.",
+  "impact": "Subscribers on these plans get more work out of the same monthly fee within each rolling five-hour window, with no action required and no plan change. The saved rate limit reset is a one-off that can be held back and spent on a session that would otherwise be cut short. Because no numbers were published, the increase cannot be budgeted against in advance, so treat current limits as the planning floor until the new figures appear in the usage docs.",
+  "confidence": "verified",
+  "sources": [
+    { "url": "https://www.anthropic.com/claude-opus-5-5", "published": "2026-09-22" }
+  ]
+}

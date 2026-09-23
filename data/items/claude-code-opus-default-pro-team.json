@@ -1,0 +1,16 @@
+{
+  "id": "claude-code-opus-default-pro-team",
+  "vendor": "Claude Code",
+  "kind": "policy",
+  "direction": "variable",
+  "date": "2026-09-22",
+  "effective": "2026-09-22",
+  "title": "Claude Code switches the default model on Pro and Team Standard plans from Sonnet to Opus",
+  "detail": "Claude Code v2.1.280, released September 22, 2026, changed the default model on Pro and Team Standard plans from Sonnet to Opus, matching the default already used on Max, Team Premium, and Enterprise. The same release made Claude Opus 5.5 the default Opus model. Claude Code documentation states that subscription usage draws on a per-seat allowance over a rolling five-hour window and a weekly window, and describes separate model-family limit messages for Opus and for Sonnet, so work that previously drew on the Sonnet limit now draws on the Opus limit unless the user sets a model with the /model command or a default in /config.",
+  "impact": "Pro and Team Standard subscribers who change nothing now run Opus by default on every new session, at the same subscription price but drawing against a different model limit than before. Anyone who sized their working habits around the Sonnet default should expect a different rate of allowance consumption and can return to the old behaviour by selecting Sonnet in /model or setting a default in /config. Anthropic paired this with an unquantified increase to five-hour limits on the same plans.",
+  "confidence": "verified",
+  "sources": [
+    { "url": "https://code.claude.com/docs/en/changelog", "published": "2026-09-22" },
+    { "url": "https://code.claude.com/docs/en/costs", "published": "undated" }
+  ]
+}

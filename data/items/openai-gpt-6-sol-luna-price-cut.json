@@ -1,0 +1,17 @@
+{
+  "id": "openai-gpt-6-sol-luna-price-cut",
+  "vendor": "OpenAI",
+  "kind": "pricing",
+  "direction": "down",
+  "date": "2026-09-22",
+  "effective": "2026-09-22",
+  "title": "GPT-6 Sol and GPT-6 Luna list at half the token price of the GPT-5.6 models they replace",
+  "detail": "OpenAI made GPT-6 Sol and GPT-6 Luna available on September 22, 2026. On the OpenAI pricing page, standard short-context rates are $2.00 input / $0.20 cached input / $10.00 output per million tokens for GPT-6 Sol, and $0.10 / $0.01 / $0.50 for GPT-6 Luna. The same page still lists their predecessors at $4.00 / $0.40 / $20.00 for GPT-5.6 Sol and $0.20 / $0.02 / $1.20 for GPT-5.6 Luna, so Sol input and output both fall by half and Luna output falls from $1.20 to $0.50. GPT-6 Astra, released earlier, remains at $10.00 / $1.00 / $50.00. Long-context variants are listed at higher rates than the short-context rates quoted here. VentureBeat reported that an OpenAI spokesperson called these permanent prices rather than promotional or introductory pricing. No retirement date was announced for the GPT-5.6 models, which remain listed.",
+  "impact": "Anyone already running GPT-5.6 Sol or Luna workloads can move to the GPT-6 equivalent and pay half the input and output rate, with cached input dropping in the same proportion. The GPT-5.6 models keep working at their current listed rates, so this is an opt-in saving that requires changing the model name in your calls, not an automatic reduction to your existing bill.",
+  "confidence": "verified",
+  "sources": [
+    { "url": "https://developers.openai.com/api/docs/pricing", "published": "undated" },
+    { "url": "https://github.blog/changelog/2026-09-22-openais-gpt-6-sol-and-gpt-6-luna-now-available/", "published": "2026-09-22" },
+    { "url": "https://venturebeat.com/technology/openai-releases-gpt-6-sol-and-luna-models-slashing-api-costs-50-or-more", "published": "2026-09-22" }
+  ]
+}

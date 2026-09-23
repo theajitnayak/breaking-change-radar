@@ -1,8 +1,56 @@
 {
   "schema": 1,
   "scope": "Pricing, credit, quota and removal changes in AI coding tools and the model APIs they bill through.",
-  "updated": "2026-09-22",
+  "updated": "2026-09-23",
   "items": [
+    {
+      "id": "openai-gpt-6-sol-luna-price-cut",
+      "vendor": "OpenAI",
+      "kind": "pricing",
+      "direction": "down",
+      "date": "2026-09-22",
+      "effective": "2026-09-22",
+      "title": "GPT-6 Sol and GPT-6 Luna list at half the token price of the GPT-5.6 models they replace",
+      "detail": "OpenAI made GPT-6 Sol and GPT-6 Luna available on September 22, 2026. On the OpenAI pricing page, standard short-context rates are $2.00 input / $0.20 cached input / $10.00 output per million tokens for GPT-6 Sol, and $0.10 / $0.01 / $0.50 for GPT-6 Luna. The same page still lists their predecessors at $4.00 / $0.40 / $20.00 for GPT-5.6 Sol and $0.20 / $0.02 / $1.20 for GPT-5.6 Luna, so Sol input and output both fall by half and Luna output falls from $1.20 to $0.50. GPT-6 Astra, released earlier, remains at $10.00 / $1.00 / $50.00. Long-context variants are listed at higher rates than the short-context rates quoted here. VentureBeat reported that an OpenAI spokesperson called these permanent prices rather than promotional or introductory pricing. No retirement date was announced for the GPT-5.6 models, which remain listed.",
+      "impact": "Anyone already running GPT-5.6 Sol or Luna workloads can move to the GPT-6 equivalent and pay half the input and output rate, with cached input dropping in the same proportion. The GPT-5.6 models keep working at their current listed rates, so this is an opt-in saving that requires changing the model name in your calls, not an automatic reduction to your existing bill.",
+      "confidence": "verified",
+      "sources": [
+        { "url": "https://developers.openai.com/api/docs/pricing", "published": "undated" },
+        { "url": "https://github.blog/changelog/2026-09-22-openais-gpt-6-sol-and-gpt-6-luna-now-available/", "published": "2026-09-22" },
+        { "url": "https://venturebeat.com/technology/openai-releases-gpt-6-sol-and-luna-models-slashing-api-costs-50-or-more", "published": "2026-09-22" }
+      ]
+    },
+    {
+      "id": "claude-five-hour-limit-increase",
+      "vendor": "Claude Code",
+      "kind": "limit",
+      "direction": "down",
+      "date": "2026-09-22",
+      "effective": null,
+      "title": "Anthropic raises five-hour usage limits on Pro, Max, Team and seat-based Enterprise plans",
+      "detail": "In the Claude Opus 5.5 announcement on September 22, 2026, Anthropic stated that it is increasing five-hour usage limits on Pro, Max, Team, and seat-based Enterprise plans, and that subscription users are being given a rate limit reset which can be saved and used at a time of the subscriber choosing. Anthropic published no figures for the size of the increase, no before and after numbers, and no date on which the higher limits take effect. The announcement does not say whether weekly limits change.",
+      "impact": "Subscribers on these plans get more work out of the same monthly fee within each rolling five-hour window, with no action required and no plan change. The saved rate limit reset is a one-off that can be held back and spent on a session that would otherwise be cut short. Because no numbers were published, the increase cannot be budgeted against in advance, so treat current limits as the planning floor until the new figures appear in the usage docs.",
+      "confidence": "verified",
+      "sources": [
+        { "url": "https://www.anthropic.com/claude-opus-5-5", "published": "2026-09-22" }
+      ]
+    },
+    {
+      "id": "claude-code-opus-default-pro-team",
+      "vendor": "Claude Code",
+      "kind": "policy",
+      "direction": "variable",
+      "date": "2026-09-22",
+      "effective": "2026-09-22",
+      "title": "Claude Code switches the default model on Pro and Team Standard plans from Sonnet to Opus",
+      "detail": "Claude Code v2.1.280, released September 22, 2026, changed the default model on Pro and Team Standard plans from Sonnet to Opus, matching the default already used on Max, Team Premium, and Enterprise. The same release made Claude Opus 5.5 the default Opus model. Claude Code documentation states that subscription usage draws on a per-seat allowance over a rolling five-hour window and a weekly window, and describes separate model-family limit messages for Opus and for Sonnet, so work that previously drew on the Sonnet limit now draws on the Opus limit unless the user sets a model with the /model command or a default in /config.",
+      "impact": "Pro and Team Standard subscribers who change nothing now run Opus by default on every new session, at the same subscription price but drawing against a different model limit than before. Anyone who sized their working habits around the Sonnet default should expect a different rate of allowance consumption and can return to the old behaviour by selecting Sonnet in /model or setting a default in /config. Anthropic paired this with an unquantified increase to five-hour limits on the same plans.",
+      "confidence": "verified",
+      "sources": [
+        { "url": "https://code.claude.com/docs/en/changelog", "published": "2026-09-22" },
+        { "url": "https://code.claude.com/docs/en/costs", "published": "undated" }
+      ]
+    },
     {
       "id": "anthropic-opus-5-5-price-cut",
       "vendor": "Anthropic API",
