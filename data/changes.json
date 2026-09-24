@@ -1,8 +1,23 @@
 {
   "schema": 1,
   "scope": "Pricing, credit, quota and removal changes in AI coding tools and the model APIs they bill through.",
-  "updated": "2026-09-23",
+  "updated": "2026-09-24",
   "items": [
+    {
+      "id": "vercel-blob-unlimited-stores",
+      "vendor": "Vercel",
+      "kind": "limit",
+      "direction": "down",
+      "date": "2026-09-23",
+      "effective": "2026-09-23",
+      "title": "Vercel removes the per-plan cap on Blob stores and bills store creation as an Advanced Operation",
+      "detail": "On September 23, 2026 Vercel removed the limit on the number of Vercel Blob stores per plan. The previous limits of 100 stores on Hobby, 500 on Pro, and 1,000 on Enterprise no longer apply. Creating a store is now billed as one Blob Advanced Operation, alongside put(), copy() and list() calls, which is $5.00 per million on Pro and counts toward the 2,000 free operations per month on Hobby. Deleting a store is free. Storage, operations and data transfer are still billed on usage, so splitting the same data across more stores costs the same.",
+      "impact": "Teams that were designing around the 100, 500 or 1,000 store cap can now create stores freely, for example one per tenant or per preview. The only new cost is one Advanced Operation per store created, which on Pro is $5.00 per million and on Hobby comes out of the 2,000 free monthly operations.",
+      "confidence": "verified",
+      "sources": [
+        { "url": "https://vercel.com/changelog/unlimited-vercel-blob-stores-on-every-plan", "published": "2026-09-23" }
+      ]
+    },
     {
       "id": "openai-gpt-6-sol-luna-price-cut",
       "vendor": "OpenAI",
