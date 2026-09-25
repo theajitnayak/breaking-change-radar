@@ -1,0 +1,17 @@
+{
+  "id": "claude-code-cloud-session-credit",
+  "vendor": "Claude Code",
+  "kind": "limit",
+  "direction": "down",
+  "date": "2026-09-23",
+  "effective": null,
+  "title": "Anthropic grants Pro $100 and Max $250 in cloud-session credit, claimable to October 7 and expiring November 4",
+  "detail": "Claude Code cloud sessions left research preview on September 23, 2026, and existing Pro and Max subscribers were offered a one-time promotional credit to try them: $100 on Pro and $250 on Max. Secondary reporting puts the claim deadline at 11:59 PM PT on October 7, 2026 and the expiry at 11:59 PM PT on November 4, 2026, claimed either from a link Anthropic published or by running /claim-credit in the CLI. The credit is spendable only in cloud sessions, sits outside the plan's regular usage allowance, and applies automatically once a session starts. Claiming requires a linked GitHub account, since cloud sessions clone repositories and open pull requests through GitHub. The in-product dialog shown to Pro subscribers adds that the credit is not eligible for Projects and Routines; none of the cited pages carry that line, and Anthropic's own documentation states that routines each run as a cloud session. Anthropic has published no page of its own naming these amounts or dates, so every figure here rests on secondary sources.",
+  "impact": "For eligible subscribers this is additive and costs nothing, but it is gated behind <b>two separate deadlines</b>: claim by October 7 or the grant is forfeited, and spend by November 4 or the remainder is. Because the balance sits outside the plan allowance, cloud work can continue after the normal allowance is exhausted, which makes the six-week window worth planning real work into rather than sampling. The Projects and Routines exclusion matters more than it reads: those are the unattended paths, so scheduled and triggered runs draw on the ordinary allowance as usual and cannot quietly consume the grant. Anthropic's documentation states there is no separate compute charge for the cloud VM, so once the credit lapses cloud sessions revert to drawing on the same rate limits as any other Claude Code usage, not to a new line item.",
+  "confidence": "unverified",
+  "sources": [
+    { "url": "https://code.claude.com/docs/en/claude-code-on-the-web", "published": "undated" },
+    { "url": "https://alphasignal.ai/news/anthropic-ships-claude-code-cloud-sessions-so-developers-can-code-without-a", "published": "2026-09-23" },
+    { "url": "https://explainx.ai/blog/claude-code-cloud-sessions-ga-100-250-credit-claim-credit-2026", "published": "2026-09-24" }
+  ]
+}

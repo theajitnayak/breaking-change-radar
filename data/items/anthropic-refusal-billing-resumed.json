@@ -1,0 +1,16 @@
+{
+  "id": "anthropic-refusal-billing-resumed",
+  "vendor": "Anthropic API",
+  "kind": "pricing",
+  "direction": "up",
+  "date": "2026-09-24",
+  "effective": null,
+  "title": "Anthropic resumes billing for some refusals that return no output",
+  "detail": "Anthropic is billing again for refusals that arrive before any output when stop_details.category is \"bio\", \"frontier_llm\" or \"reasoning_extraction\", the categories where it measures low volumes of false positives. These refusals are charged like any other request, at the rates of the model that ran it. The response content is empty and token counts appear in usage. Refusals before any output in other categories, or with a null category, are still not billed. Mid-stream refusals were already billed. When fallback is used, a refusal in a billed category is billed in addition to the fallback request. Fallback credit is unchanged. The change applies on all platforms: the Claude API, Amazon Bedrock, Claude Platform on AWS, Google Cloud and Microsoft Foundry. Anthropic says the billed categories may change.",
+  "impact": "If your requests hit one of these three refusal categories, you now <b>pay full model rates for a response with no content</b>, and if you use fallback you pay for the refused attempt and the retry. Check usage.iterations and stop_details.category to see which requests are affected. Refusals in other categories remain free.",
+  "confidence": "verified",
+  "sources": [
+    { "url": "https://platform.claude.com/docs/en/release-notes/overview", "published": "2026-09-24" },
+    { "url": "https://platform.claude.com/docs/en/build-with-claude/refusals-and-fallback", "published": "undated" }
+  ]
+}

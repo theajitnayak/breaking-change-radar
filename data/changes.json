@@ -1,8 +1,24 @@
 {
   "schema": 1,
   "scope": "Pricing, credit, quota and removal changes in AI coding tools and the model APIs they bill through.",
-  "updated": "2026-09-24",
+  "updated": "2026-09-25",
   "items": [
+    {
+      "id": "anthropic-refusal-billing-resumed",
+      "vendor": "Anthropic API",
+      "kind": "pricing",
+      "direction": "up",
+      "date": "2026-09-24",
+      "effective": null,
+      "title": "Anthropic resumes billing for some refusals that return no output",
+      "detail": "Anthropic is billing again for refusals that arrive before any output when stop_details.category is \"bio\", \"frontier_llm\" or \"reasoning_extraction\", the categories where it measures low volumes of false positives. These refusals are charged like any other request, at the rates of the model that ran it. The response content is empty and token counts appear in usage. Refusals before any output in other categories, or with a null category, are still not billed. Mid-stream refusals were already billed. When fallback is used, a refusal in a billed category is billed in addition to the fallback request. Fallback credit is unchanged. The change applies on all platforms: the Claude API, Amazon Bedrock, Claude Platform on AWS, Google Cloud and Microsoft Foundry. Anthropic says the billed categories may change.",
+      "impact": "If your requests hit one of these three refusal categories, you now <b>pay full model rates for a response with no content</b>, and if you use fallback you pay for the refused attempt and the retry. Check usage.iterations and stop_details.category to see which requests are affected. Refusals in other categories remain free.",
+      "confidence": "verified",
+      "sources": [
+        { "url": "https://platform.claude.com/docs/en/release-notes/overview", "published": "2026-09-24" },
+        { "url": "https://platform.claude.com/docs/en/build-with-claude/refusals-and-fallback", "published": "undated" }
+      ]
+    },
     {
       "id": "vercel-blob-unlimited-stores",
       "vendor": "Vercel",
@@ -16,6 +32,23 @@
       "confidence": "verified",
       "sources": [
         { "url": "https://vercel.com/changelog/unlimited-vercel-blob-stores-on-every-plan", "published": "2026-09-23" }
+      ]
+    },
+    {
+      "id": "claude-code-cloud-session-credit",
+      "vendor": "Claude Code",
+      "kind": "limit",
+      "direction": "down",
+      "date": "2026-09-23",
+      "effective": null,
+      "title": "Anthropic grants Pro $100 and Max $250 in cloud-session credit, claimable to October 7 and expiring November 4",
+      "detail": "Claude Code cloud sessions left research preview on September 23, 2026, and existing Pro and Max subscribers were offered a one-time promotional credit to try them: $100 on Pro and $250 on Max. Secondary reporting puts the claim deadline at 11:59 PM PT on October 7, 2026 and the expiry at 11:59 PM PT on November 4, 2026, claimed either from a link Anthropic published or by running /claim-credit in the CLI. The credit is spendable only in cloud sessions, sits outside the plan's regular usage allowance, and applies automatically once a session starts. Claiming requires a linked GitHub account, since cloud sessions clone repositories and open pull requests through GitHub. The in-product dialog shown to Pro subscribers adds that the credit is not eligible for Projects and Routines; none of the cited pages carry that line, and Anthropic's own documentation states that routines each run as a cloud session. Anthropic has published no page of its own naming these amounts or dates, so every figure here rests on secondary sources.",
+      "impact": "For eligible subscribers this is additive and costs nothing, but it is gated behind <b>two separate deadlines</b>: claim by October 7 or the grant is forfeited, and spend by November 4 or the remainder is. Because the balance sits outside the plan allowance, cloud work can continue after the normal allowance is exhausted, which makes the six-week window worth planning real work into rather than sampling. The Projects and Routines exclusion matters more than it reads: those are the unattended paths, so scheduled and triggered runs draw on the ordinary allowance as usual and cannot quietly consume the grant. Anthropic's documentation states there is no separate compute charge for the cloud VM, so once the credit lapses cloud sessions revert to drawing on the same rate limits as any other Claude Code usage, not to a new line item.",
+      "confidence": "unverified",
+      "sources": [
+        { "url": "https://code.claude.com/docs/en/claude-code-on-the-web", "published": "undated" },
+        { "url": "https://alphasignal.ai/news/anthropic-ships-claude-code-cloud-sessions-so-developers-can-code-without-a", "published": "2026-09-23" },
+        { "url": "https://explainx.ai/blog/claude-code-cloud-sessions-ga-100-250-credit-claim-credit-2026", "published": "2026-09-24" }
       ]
     },
     {
