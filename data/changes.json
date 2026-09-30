@@ -1,8 +1,24 @@
 {
   "schema": 1,
   "scope": "Pricing, credit, quota and removal changes in AI coding tools and the model APIs they bill through.",
-  "updated": "2026-09-25",
+  "updated": "2026-09-30",
   "items": [
+    {
+      "id": "windsurf-chatgpt-plan-billing",
+      "vendor": "Windsurf",
+      "kind": "pricing",
+      "direction": "down",
+      "date": "2026-09-29",
+      "effective": "2026-09-29",
+      "title": "Devin Desktop can bill GPT model usage to a linked ChatGPT Plus or Pro plan instead of Devin quota",
+      "detail": "Devin Desktop v3.10.48, dated September 29, 2026, adds sign-in with ChatGPT so that GPT model requests are billed to an eligible ChatGPT Plus or Pro plan. The Devin billing docs state that the GPT portion is billed only to the ChatGPT plan and does not also consume Devin quota or on-demand credits. Non-OpenAI models in a session still draw on Devin quota. It works with all GPT models except fast and priority variants. It is available on the Devin Pro, Max and Teams self-serve plans, not on Free or Enterprise, and each Teams member links their own ChatGPT subscription. When the ChatGPT plan runs out of usage, Devin falls back to billing the GPT portion to Devin quota and then to on-demand credits.",
+      "impact": "If you already pay for ChatGPT Plus or Pro and a Devin Pro, Max or Teams seat, linking the two moves GPT usage off your Devin daily and weekly quotas, so the same Devin plan lasts longer. Enterprise accounts get nothing from this, and once the ChatGPT allowance is used up the cost returns to Devin quota and on-demand credits.",
+      "confidence": "verified",
+      "sources": [
+        { "url": "https://docs.devin.ai/desktop/changelog", "published": "2026-09-29" },
+        { "url": "https://docs.devin.ai/admin/billing/chatgpt", "published": "undated" }
+      ]
+    },
     {
       "id": "anthropic-refusal-billing-resumed",
       "vendor": "Anthropic API",
