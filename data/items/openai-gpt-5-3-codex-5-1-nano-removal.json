@@ -1,0 +1,15 @@
+{
+  "id": "openai-gpt-5-3-codex-5-1-nano-removal",
+  "vendor": "OpenAI",
+  "kind": "removal",
+  "direction": "neutral",
+  "date": "2026-10-01",
+  "effective": "2027-04-01",
+  "title": "GPT-5.3-Codex, GPT-5.1 and GPT-5.4-Nano are removed from the API on April 1, 2027",
+  "detail": "OpenAI added a deprecation entry dated 2026-10-01 covering three models. The page states that the models are deprecated and will be removed from the API on April 1, 2027, with six months notice. The listed replacements are gpt-5.3-codex to gpt-6-sol, gpt-5.1 to gpt-6-sol, and gpt-5.4-nano to gpt-6-luna.",
+  "impact": "If you call gpt-5.3-codex, gpt-5.1 or gpt-5.4-nano, those calls stop resolving on April 1, 2027. Nothing changes on your bill today and the six month notice means no forced move before that date, but the migration is a swap onto the GPT-6 family plus an eval pass, and pinned IDs do not roll forward on their own.",
+  "confidence": "verified",
+  "sources": [
+    { "url": "https://developers.openai.com/api/docs/deprecations", "published": "2026-10-01" }
+  ]
+}

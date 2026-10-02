@@ -1,0 +1,16 @@
+{
+  "id": "vercel-laya-free-promo",
+  "vendor": "Vercel",
+  "kind": "pricing",
+  "direction": "down",
+  "date": "2026-10-01",
+  "effective": "2026-10-31",
+  "title": "Vercel AI Gateway serves the Laya decision model free through October 31",
+  "detail": "Vercel added the Laya decision model from Convai Innovations to AI Gateway on October 1, 2026, free when served by Boundless through October 31, 2026. The changelog lists two identifiers, convaiinnovations/laya and convaiinnovations/laya-free, and states that the -free ID routes to Boundless and stops serving after the promotion while the standard ID begins billing then. Neither the changelog entry nor the AI Gateway model page prints a token rate for the model.",
+  "impact": "Routing decision-model traffic through the -free ID costs nothing until October 31. The cost lands on November 1 in two steps: the -free ID stops serving rather than falling back to a paid rate, so anything pinned to it breaks, and the standard ID that replaces it starts billing at a rate Vercel does not currently publish on either page. Switch the ID before the end of the month and budget for an unknown rate.",
+  "confidence": "verified",
+  "sources": [
+    { "url": "https://vercel.com/changelog/laya-decision-model-now-available-on-ai-gateway-free-through-october-31", "published": "2026-10-01" },
+    { "url": "https://vercel.com/ai-gateway/models/laya", "published": "undated" }
+  ]
+}
