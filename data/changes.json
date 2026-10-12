@@ -1,8 +1,23 @@
 {
   "schema": 1,
   "scope": "Pricing, credit, quota and removal changes in AI coding tools and the model APIs they bill through.",
-  "updated": "2026-10-03",
+  "updated": "2026-10-12",
   "items": [
+    {
+      "id": "vercel-deployment-storage-existing-pro",
+      "vendor": "Vercel",
+      "kind": "pricing",
+      "direction": "up",
+      "date": "2026-10-09",
+      "effective": "2026-10-23",
+      "title": "Vercel starts billing Deployment Storage for existing Pro teams and sets 30-day deployment retention",
+      "detail": "On October 9, 2026 Vercel announced that billing for Deployment Storage and Functions Storage starts for existing Pro teams at $0.10 per GB-month. Teams get an email with their specific start date. The deployment retention window becomes 30 days, and deployments older than that are deleted starting October 23 unless the team opts out in its retention settings before then. Teams whose retention is already 30 days or shorter are not affected. Deleted deployments cannot be used for rollback. The page does not state an included storage allowance.",
+      "impact": "Existing Pro teams will see a new storage line on their bill at <b>$0.10 per GB-month</b>. Teams that rely on rolling back to deployments older than 30 days need to change their retention settings before October 23 or those deployments are deleted.",
+      "confidence": "verified",
+      "sources": [
+        { "url": "https://vercel.com/changelog/deployment-storage-pricing-expands-to-existing-teams", "published": "2026-10-09" }
+      ]
+    },
     {
       "id": "github-copilot-model-deprecation-oct2",
       "vendor": "GitHub Copilot",
