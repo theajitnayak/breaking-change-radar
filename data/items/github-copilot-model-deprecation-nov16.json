@@ -1,0 +1,15 @@
+{
+  "id": "github-copilot-model-deprecation-nov16",
+  "vendor": "GitHub Copilot",
+  "kind": "removal",
+  "direction": "neutral",
+  "date": "2026-10-15",
+  "effective": "2026-11-16",
+  "title": "GitHub Copilot will drop Claude Opus 4.8, Claude Opus 5 and GPT-5.6 Terra on November 16",
+  "detail": "Claude Opus 4.8, Claude Opus 5 and GPT-5.6 Terra are deprecated across all Copilot experiences (Chat, inline edits, ask and agent modes, code completions) on November 16, 2026. Suggested alternatives are Claude Opus 5.5 for both Claude models and GPT-6.1 Sol or GPT-6 Luna for GPT-5.6 Terra. Claude Opus 4.8 stays available to individual Copilot subscribers on annual plans. For Enterprise and Business customers the alternatives are auto-enabled unless an admin has turned off the global default or disabled the model.",
+  "impact": "A third Copilot model cutoff in about six weeks. Anything pinned to Opus 4.8, Opus 5 or GPT-5.6 Terra through Copilot stops resolving on November 16, except Opus 4.8 on individual annual plans. Admins who turned off default model enablement must enable the replacements by policy.",
+  "confidence": "verified",
+  "sources": [
+    { "url": "https://github.blog/changelog/2026-10-15-upcoming-deprecation-of-selected-github-copilot-models-in-mid-november", "published": "2026-10-15" }
+  ]
+}

@@ -1,8 +1,38 @@
 {
   "schema": 1,
   "scope": "Pricing, credit, quota and removal changes in AI coding tools and the model APIs they bill through.",
-  "updated": "2026-10-12",
+  "updated": "2026-10-16",
   "items": [
+    {
+      "id": "github-copilot-model-deprecation-nov16",
+      "vendor": "GitHub Copilot",
+      "kind": "removal",
+      "direction": "neutral",
+      "date": "2026-10-15",
+      "effective": "2026-11-16",
+      "title": "GitHub Copilot will drop Claude Opus 4.8, Claude Opus 5 and GPT-5.6 Terra on November 16",
+      "detail": "Claude Opus 4.8, Claude Opus 5 and GPT-5.6 Terra are deprecated across all Copilot experiences (Chat, inline edits, ask and agent modes, code completions) on November 16, 2026. Suggested alternatives are Claude Opus 5.5 for both Claude models and GPT-6.1 Sol or GPT-6 Luna for GPT-5.6 Terra. Claude Opus 4.8 stays available to individual Copilot subscribers on annual plans. For Enterprise and Business customers the alternatives are auto-enabled unless an admin has turned off the global default or disabled the model.",
+      "impact": "A third Copilot model cutoff in about six weeks. Anything pinned to Opus 4.8, Opus 5 or GPT-5.6 Terra through Copilot stops resolving on November 16, except Opus 4.8 on individual annual plans. Admins who turned off default model enablement must enable the replacements by policy.",
+      "confidence": "verified",
+      "sources": [
+        { "url": "https://github.blog/changelog/2026-10-15-upcoming-deprecation-of-selected-github-copilot-models-in-mid-november", "published": "2026-10-15" }
+      ]
+    },
+    {
+      "id": "openai-gpt-4o-4-1-removal",
+      "vendor": "OpenAI API",
+      "kind": "removal",
+      "direction": "neutral",
+      "date": "2026-10-14",
+      "effective": "2027-01-14",
+      "title": "OpenAI API will remove GPT-4o, GPT-4o mini, GPT-4.1 and GPT-4.1 mini on January 14, 2027",
+      "detail": "On October 14, 2026 OpenAI notified developers that gpt-4o-2024-08-06, gpt-4o-2024-11-20, gpt-4o-mini-2024-07-18, gpt-4.1-2025-04-14 and gpt-4.1-mini-2025-04-14 are deprecated and will be removed from the API on January 14, 2027. The recommended replacement for all of them is gpt-6-luna. Fine-tuned versions of these models follow the same shutdown schedule as their base models.",
+      "impact": "Anyone still calling these models, including fine-tuned variants, has until January 14, 2027 before requests fail. Fine-tuned models have no direct replacement listed on the page, so moving to gpt-6-luna means re-running any fine-tuning work.",
+      "confidence": "verified",
+      "sources": [
+        { "url": "https://developers.openai.com/api/docs/deprecations", "published": "2026-10-14" }
+      ]
+    },
     {
       "id": "vercel-deployment-storage-existing-pro",
       "vendor": "Vercel",
