@@ -1,8 +1,23 @@
 {
   "schema": 1,
   "scope": "Pricing, credit, quota and removal changes in AI coding tools and the model APIs they bill through.",
-  "updated": "2026-10-16",
+  "updated": "2026-10-19",
   "items": [
+    {
+      "id": "vercel-reflection-beam-free-promo",
+      "vendor": "Vercel",
+      "kind": "pricing",
+      "direction": "down",
+      "date": "2026-10-16",
+      "effective": null,
+      "title": "Vercel AI Gateway serves Reflection AI's Beam free for a limited launch period",
+      "detail": "Vercel added Reflection AI's Beam to AI Gateway on October 16, 2026, free for a limited time during the launch period when served by Reflection AI. The changelog gives no end date and no price after the free period. It lists two identifiers: reflection/beam, which automatically moves to paid pricing with no downtime when the free period ends, and reflection/beam-free, which stops serving when the offer ends. The page states AI Gateway reflects provider pricing with no markup and no platform fee on inference, including bring-your-own-key requests.",
+      "impact": "Usage of Beam costs nothing for now. When the offer ends, anything pinned to reflection/beam-free stops working, and anything on reflection/beam starts billing at a rate Vercel does not publish on this page and with no advance end date. Do not build a budget on the free rate.",
+      "confidence": "verified",
+      "sources": [
+        { "url": "https://vercel.com/changelog/reflection-ai-beam-now-available-on-ai-gateway-for-free", "published": "2026-10-16" }
+      ]
+    },
     {
       "id": "github-copilot-model-deprecation-nov16",
       "vendor": "GitHub Copilot",
