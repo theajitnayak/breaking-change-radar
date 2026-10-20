@@ -1,0 +1,15 @@
+{
+  "id": "vercel-hobby-pro-terms-credit-expiry",
+  "vendor": "Vercel",
+  "kind": "policy",
+  "direction": "up",
+  "date": "2026-10-19",
+  "effective": "2026-10-19",
+  "title": "Vercel Hobby and Pro terms add credit expiry and advance billing rules",
+  "detail": "Vercel updated the Terms of Service for Hobby and Pro customers, effective October 19, 2026. A new section states that plan-included credits expire at the end of the subscription term and purchased credits expire one year after purchase unless the credit purchase terms say otherwise. Credits can only pay Vercel fees, have no cash value, are nontransferable and are generally nonrefundable, except unused purchased credits are refunded if Vercel terminates the account without cause. Credit purchases are billed in advance, subscriptions auto-renew unless turned off, and third-party pass-through rates may change when provider rates change. The post announces no price change.",
+  "impact": "Unused plan credits are lost at the end of each term and purchased credits lapse after one year, so <b>prepaying for credits now carries an expiry date</b>. Pass-through model rates can move without a Vercel price change.",
+  "confidence": "verified",
+  "sources": [
+    { "url": "https://vercel.com/changelog/updates-to-hobby-and-pro-terms-of-service", "published": "2026-10-19" }
+  ]
+}

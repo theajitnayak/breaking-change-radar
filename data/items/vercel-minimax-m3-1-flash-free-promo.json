@@ -1,0 +1,15 @@
+{
+  "id": "vercel-minimax-m3-1-flash-free-promo",
+  "vendor": "Vercel",
+  "kind": "pricing",
+  "direction": "down",
+  "date": "2026-10-19",
+  "effective": "2026-10-22",
+  "title": "Vercel AI Gateway serves MiniMax M3.1 Flash free until October 22",
+  "detail": "Vercel added MiniMax M3.1 Flash (minimax/minimax-m3.1-flash) to AI Gateway on October 19, 2026, free until Oct 22. The changelog gives no year for the end date. The free rate applies only when MiniMax serves the request, so the provider must be set with order in the gateway provider options. After the offer ends, pinned requests bill at MiniMax's standard rate. The page prints no numeric rate.",
+  "impact": "Traffic routed to this model costs nothing for about three days. Requests not pinned to MiniMax may not get the free rate. After October 22 the same requests bill at a rate the page does not state, so check it before leaving the model in a production path.",
+  "confidence": "verified",
+  "sources": [
+    { "url": "https://vercel.com/changelog/minimax-m3-1-flash-now-available-on-ai-gateway-for-free", "published": "2026-10-19" }
+  ]
+}
