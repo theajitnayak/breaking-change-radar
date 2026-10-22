@@ -1,8 +1,23 @@
 {
   "schema": 1,
   "scope": "Pricing, credit, quota and removal changes in AI coding tools and the model APIs they bill through.",
-  "updated": "2026-10-20",
+  "updated": "2026-10-22",
   "items": [
+    {
+      "id": "vercel-baseten-mammoth-elephant-free-promo",
+      "vendor": "Vercel",
+      "kind": "pricing",
+      "direction": "down",
+      "date": "2026-10-21",
+      "effective": "2026-10-27",
+      "title": "Vercel AI Gateway serves Baseten Mammoth-1 and Elephant-1 free through October 27",
+      "detail": "Vercel made Baseten's Mammoth-1 (27B) and Elephant-1 (9B) decision models available on AI Gateway for one week, with free access through October 27. The model names are baseten/mammoth-1 and baseten/elephant-1. The changelog entry states that decision calls appear in logs and count toward budgets alongside other model requests. The page does not print a rate for either model after the free period.",
+      "impact": "Decision-model traffic sent to these two models costs nothing until October 27. The page gives no post-promotion rate, so any workload built on them has an unknown cost after that date.",
+      "confidence": "verified",
+      "sources": [
+        { "url": "https://vercel.com/changelog/basetens-mammoth-1-and-elephant-1-now-available-on-ai-gateway-for-free", "published": "2026-10-21" }
+      ]
+    },
     {
       "id": "vercel-minimax-m3-1-flash-free-promo",
       "vendor": "Vercel",
