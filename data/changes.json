@@ -1,8 +1,39 @@
 {
   "schema": 1,
   "scope": "Pricing, credit, quota and removal changes in AI coding tools and the model APIs they bill through.",
-  "updated": "2026-10-22",
+  "updated": "2026-10-23",
   "items": [
+    {
+      "id": "openai-decisions-api-ga-limits",
+      "vendor": "OpenAI",
+      "kind": "limit",
+      "direction": "down",
+      "date": "2026-10-22",
+      "effective": null,
+      "title": "OpenAI Decisions API reaches general availability with 400 questions per request and prompt-cache discounts",
+      "detail": "The Decisions API (POST /v1/decisions, gpt-6-luna only) became generally available on October 22, 2026. Each request now accepts up to 400 questions, up from 200 during the public beta. Shared input can now be cached across requests for prompt-cache discounts. The Decisions guide lists uncached input at $0.10 per 1M tokens with gpt-6-luna, cache reads and writes at the standard gpt-6-luna prompt caching rates, and no charge for output tokens. Regional processing premiums and long-context multipliers apply.",
+      "impact": "Existing beta users can send twice as many questions per request and pay the discounted cached-input rate on repeated shared evidence instead of the full input rate, which lowers the cost of workloads that reuse the same document or image across requests.",
+      "confidence": "verified",
+      "sources": [
+        { "url": "https://developers.openai.com/api/docs/changelog", "published": "2026-10-22" },
+        { "url": "https://developers.openai.com/api/docs/guides/decisions", "published": "undated" }
+      ]
+    },
+    {
+      "id": "github-copilot-global-default-policy-enforcement",
+      "vendor": "GitHub Copilot",
+      "kind": "policy",
+      "direction": "neutral",
+      "date": "2026-10-22",
+      "effective": "2026-10-26",
+      "title": "GitHub sets unconfigured Copilot Business and Enterprise feature policies to the global default by October 26",
+      "detail": "GitHub began rolling out enforcement of the global default policy for generally available Copilot features and client capabilities on Copilot Business and Copilot Enterprise on October 22, 2026, completing by October 26. Eligible settings under Features & clients and MCP servers in Copilot that are left Unconfigured will be set to the selected global default of Enabled, Disabled, or Let organizations decide. This is a one-time change. Settings an administrator has explicitly enabled or disabled are not changed, and preview features remain opt-in. The setting is under AI Controls, Copilot, Default policy for new features.",
+      "impact": "For a Business or Enterprise org that never configured individual Copilot features, what members are allowed to use will change between October 22 and October 26 to match the global default. Admins who want a specific feature on or off should set it explicitly before then.",
+      "confidence": "verified",
+      "sources": [
+        { "url": "https://github.blog/changelog/2026-10-22-global-default-for-copilot-features-generally-available/", "published": "2026-10-22" }
+      ]
+    },
     {
       "id": "vercel-baseten-mammoth-elephant-free-promo",
       "vendor": "Vercel",

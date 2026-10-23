@@ -1,0 +1,16 @@
+{
+  "id": "openai-decisions-api-ga-limits",
+  "vendor": "OpenAI",
+  "kind": "limit",
+  "direction": "down",
+  "date": "2026-10-22",
+  "effective": null,
+  "title": "OpenAI Decisions API reaches general availability with 400 questions per request and prompt-cache discounts",
+  "detail": "The Decisions API (POST /v1/decisions, gpt-6-luna only) became generally available on October 22, 2026. Each request now accepts up to 400 questions, up from 200 during the public beta. Shared input can now be cached across requests for prompt-cache discounts. The Decisions guide lists uncached input at $0.10 per 1M tokens with gpt-6-luna, cache reads and writes at the standard gpt-6-luna prompt caching rates, and no charge for output tokens. Regional processing premiums and long-context multipliers apply.",
+  "impact": "Existing beta users can send twice as many questions per request and pay the discounted cached-input rate on repeated shared evidence instead of the full input rate, which lowers the cost of workloads that reuse the same document or image across requests.",
+  "confidence": "verified",
+  "sources": [
+    { "url": "https://developers.openai.com/api/docs/changelog", "published": "2026-10-22" },
+    { "url": "https://developers.openai.com/api/docs/guides/decisions", "published": "undated" }
+  ]
+}

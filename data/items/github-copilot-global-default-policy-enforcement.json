@@ -1,0 +1,15 @@
+{
+  "id": "github-copilot-global-default-policy-enforcement",
+  "vendor": "GitHub Copilot",
+  "kind": "policy",
+  "direction": "neutral",
+  "date": "2026-10-22",
+  "effective": "2026-10-26",
+  "title": "GitHub sets unconfigured Copilot Business and Enterprise feature policies to the global default by October 26",
+  "detail": "GitHub began rolling out enforcement of the global default policy for generally available Copilot features and client capabilities on Copilot Business and Copilot Enterprise on October 22, 2026, completing by October 26. Eligible settings under Features & clients and MCP servers in Copilot that are left Unconfigured will be set to the selected global default of Enabled, Disabled, or Let organizations decide. This is a one-time change. Settings an administrator has explicitly enabled or disabled are not changed, and preview features remain opt-in. The setting is under AI Controls, Copilot, Default policy for new features.",
+  "impact": "For a Business or Enterprise org that never configured individual Copilot features, what members are allowed to use will change between October 22 and October 26 to match the global default. Admins who want a specific feature on or off should set it explicitly before then.",
+  "confidence": "verified",
+  "sources": [
+    { "url": "https://github.blog/changelog/2026-10-22-global-default-for-copilot-features-generally-available/", "published": "2026-10-22" }
+  ]
+}
