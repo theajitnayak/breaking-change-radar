@@ -1,0 +1,15 @@
+{
+  "id": "replit-zero-credit-overage",
+  "vendor": "Replit",
+  "kind": "policy",
+  "direction": "neutral",
+  "date": "2026-10-23",
+  "effective": null,
+  "title": "Replit lets eligible top-up customers keep published apps running at zero credits, up to an overage limit",
+  "detail": "Replit's October 23, 2026 changelog states that eligible top-up customers can keep published apps running after their credit balance reaches zero, up to an overage limit. While in overage, paid Agent pauses and Free mode stays available. Warning emails are sent before suspension. New credits repay the overage first. The changelog does not state the size of the overage limit or which customers are eligible.",
+  "impact": "For a top-up customer whose credits run out, published apps no longer stop at zero; they keep running into an overage that the next credit purchase pays off before anything else. Paid Agent work still stops at zero, and the overage cap is not printed, so suspension can still follow once that unstated limit is reached.",
+  "confidence": "verified",
+  "sources": [
+    { "url": "https://docs.replit.com/updates/2026/10/23/changelog", "published": "2026-10-23" }
+  ]
+}
