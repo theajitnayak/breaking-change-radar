@@ -1,0 +1,15 @@
+{
+  "id": "vercel-agent-sessions-cost-cut",
+  "vendor": "Vercel",
+  "kind": "pricing",
+  "direction": "down",
+  "date": "2026-10-27",
+  "effective": null,
+  "title": "Vercel Agent sessions cost 67% less on average after token-use changes, with billing rates unchanged",
+  "detail": "Vercel states that Vercel Agent sessions in the dashboard and Slack now cost 67% less on average. The reduction comes from using fewer tokens per session and more prompt-cache reuse, not from a rate change. The entry states that billing rates are unchanged: paid sessions are billed at the model provider's inference rates plus a Vercel Agent fee of $0.25 per million tokens. The change is live and requires no action.",
+  "impact": "A team already paying for Vercel Agent should see a lower bill per session without changing anything. The 67% figure is an average, so individual sessions may save more or less, and the per-token rates have not moved.",
+  "confidence": "verified",
+  "sources": [
+    { "url": "https://vercel.com/changelog/vercel-agent-sessions-now-cost-67-percent-less", "published": "2026-10-27" }
+  ]
+}
