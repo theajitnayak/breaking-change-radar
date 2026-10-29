@@ -1,0 +1,15 @@
+{
+  "id": "github-copilot-cloud-sandbox-billing",
+  "vendor": "GitHub Copilot",
+  "kind": "pricing",
+  "direction": "up",
+  "date": "2026-10-28",
+  "effective": null,
+  "title": "Copilot cloud sandbox usage starts billing in November 2026, drawn from a now dollar-based Actions entitlement",
+  "detail": "Copilot cloud sessions now run in cloud sandboxes by default. GitHub states that billing for cloud sandbox usage begins in November 2026 and draws from the included Actions entitlement. That entitlement changes from a fixed number of standard runner minutes to one shared, dollar-based pool covering standard GitHub-hosted runners, cloud sandboxes, and, on Team and Enterprise Cloud, larger hosted runners. Each product is deducted at its own published rate, the pool resets each billing cycle, and usage beyond it follows existing rates, budgets and payment settings. The change applies to GitHub Free, Pro, Free for organizations, Team and Enterprise Cloud. GitHub does not give an exact November date in the post.",
+  "impact": "Copilot cloud sessions and CI builds now spend the same Actions allowance. <b>Heavy cloud agent use can exhaust the allowance that used to cover builds</b>, after which builds and sessions both bill at standard rates.",
+  "confidence": "verified",
+  "sources": [
+    { "url": "https://github.blog/changelog/2026-10-28-work-from-anywhere-with-a-new-connected-copilot-cloud-experience", "published": "2026-10-28" }
+  ]
+}

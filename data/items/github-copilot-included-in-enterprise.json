@@ -1,0 +1,15 @@
+{
+  "id": "github-copilot-included-in-enterprise",
+  "vendor": "GitHub Copilot",
+  "kind": "pricing",
+  "direction": "variable",
+  "date": "2026-10-28",
+  "effective": null,
+  "title": "GitHub Enterprise now includes Copilot access, with all AI usage metered from the first request and no included credits",
+  "detail": "Enterprises working with a GitHub or Microsoft account team can get Copilot included with GitHub Enterprise for every licensed user, available now on GitHub Enterprise Cloud. Users without a GitHub Enterprise license get the same access through Copilot Standalone at $10 per user per month. This access has the same features and models as Copilot Enterprise but does not include monthly AI credits per seat. AI usage is metered from the first request against the enterprise budget. Code completion and next edit suggestions keep working with no budget; Copilot Chat, Copilot code review and Copilot in the cloud require available budget. Self-serve customers cannot use this model yet, GitHub says dates will follow in the coming weeks, and current self-serve subscriptions are unaffected. Copilot Business and Copilot Enterprise remain available.",
+  "impact": "Nothing changes yet for self-serve customers. Enterprises that move to this model stop paying for Copilot seats but lose the per-seat credit allowance, so <b>every chat, review and cloud request bills against the enterprise budget</b> and stops when that budget runs out.",
+  "confidence": "verified",
+  "sources": [
+    { "url": "https://github.blog/changelog/2026-10-28-github-enterprise-now-includes-access-to-github-copilot", "published": "2026-10-28" }
+  ]
+}

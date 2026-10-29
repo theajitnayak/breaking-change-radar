@@ -1,0 +1,15 @@
+{
+  "id": "github-copilot-fusion-discount",
+  "vendor": "GitHub Copilot",
+  "kind": "pricing",
+  "direction": "down",
+  "date": "2026-10-28",
+  "effective": null,
+  "title": "Copilot Fusion bills each model it uses at standard rates, with a temporary 30% discount on paid plans",
+  "detail": "Copilot Fusion combines multiple models per task. GitHub states that Fusion usage is billed for each model it uses, at each model's standard rate. For a limited time, users on paid Copilot plans receive a 30% discount on model costs when using Copilot Fusion. No end date for the discount is given.",
+  "impact": "On a paid plan, work routed through Fusion currently costs 30% less in model charges than the same models used directly. The discount has no published end date, and one Fusion task can bill for several models.",
+  "confidence": "verified",
+  "sources": [
+    { "url": "https://github.blog/changelog/2026-10-28-route-and-orchestrate-models-with-github-copilot-fusion", "published": "2026-10-28" }
+  ]
+}

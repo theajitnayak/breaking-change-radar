@@ -1,0 +1,16 @@
+{
+  "id": "openai-chatgpt-subscriber-api-credits",
+  "vendor": "OpenAI API",
+  "kind": "pricing",
+  "direction": "down",
+  "date": "2026-10-28",
+  "effective": null,
+  "title": "ChatGPT Pro and Business subscribers can claim up to $500 per month in free OpenAI API credits",
+  "detail": "Eligible ChatGPT Pro and Business subscriptions can link an API organization they own and receive monthly API credits. Amounts: Pro $100 tier gets $100, Pro $200 tier gets $200, Pro $500 tier gets $500, Business Standard gets $20 per paid seat, Business Premium gets $100 per paid seat. Business credits are pooled and capped at $500 per workspace per month. Unused credits expire at the end of the billing cycle and do not roll over. The subscription must be paid and at least seven days old, and free trials do not qualify. The credits cover API Platform usage including the Responses, Agents, Decisions, Realtime and Images APIs, but not Codex usage through API keys, and they do not raise ChatGPT or Codex usage limits. When free and purchased credits run out, requests fail with HTTP 429 and error code credit_balance_exhausted.",
+  "impact": "A Pro or Business subscriber who also pays for the API can offset up to $500 of API spend each month, but has to claim the benefit and use it within the billing cycle. It does nothing for Codex or ChatGPT limits.",
+  "confidence": "verified",
+  "sources": [
+    { "url": "https://developers.openai.com/api/docs/changelog", "published": "2026-10-28" },
+    { "url": "https://developers.openai.com/api/docs/guides/chatgpt-api-credits", "published": "undated" }
+  ]
+}

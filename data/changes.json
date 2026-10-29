@@ -1,8 +1,69 @@
 {
   "schema": 1,
   "scope": "Pricing, credit, quota and removal changes in AI coding tools and the model APIs they bill through.",
-  "updated": "2026-10-28",
+  "updated": "2026-10-29",
   "items": [
+    {
+      "id": "openai-chatgpt-subscriber-api-credits",
+      "vendor": "OpenAI API",
+      "kind": "pricing",
+      "direction": "down",
+      "date": "2026-10-28",
+      "effective": null,
+      "title": "ChatGPT Pro and Business subscribers can claim up to $500 per month in free OpenAI API credits",
+      "detail": "Eligible ChatGPT Pro and Business subscriptions can link an API organization they own and receive monthly API credits. Amounts: Pro $100 tier gets $100, Pro $200 tier gets $200, Pro $500 tier gets $500, Business Standard gets $20 per paid seat, Business Premium gets $100 per paid seat. Business credits are pooled and capped at $500 per workspace per month. Unused credits expire at the end of the billing cycle and do not roll over. The subscription must be paid and at least seven days old, and free trials do not qualify. The credits cover API Platform usage including the Responses, Agents, Decisions, Realtime and Images APIs, but not Codex usage through API keys, and they do not raise ChatGPT or Codex usage limits. When free and purchased credits run out, requests fail with HTTP 429 and error code credit_balance_exhausted.",
+      "impact": "A Pro or Business subscriber who also pays for the API can offset up to $500 of API spend each month, but has to claim the benefit and use it within the billing cycle. It does nothing for Codex or ChatGPT limits.",
+      "confidence": "verified",
+      "sources": [
+        { "url": "https://developers.openai.com/api/docs/changelog", "published": "2026-10-28" },
+        { "url": "https://developers.openai.com/api/docs/guides/chatgpt-api-credits", "published": "undated" }
+      ]
+    },
+    {
+      "id": "github-copilot-included-in-enterprise",
+      "vendor": "GitHub Copilot",
+      "kind": "pricing",
+      "direction": "variable",
+      "date": "2026-10-28",
+      "effective": null,
+      "title": "GitHub Enterprise now includes Copilot access, with all AI usage metered from the first request and no included credits",
+      "detail": "Enterprises working with a GitHub or Microsoft account team can get Copilot included with GitHub Enterprise for every licensed user, available now on GitHub Enterprise Cloud. Users without a GitHub Enterprise license get the same access through Copilot Standalone at $10 per user per month. This access has the same features and models as Copilot Enterprise but does not include monthly AI credits per seat. AI usage is metered from the first request against the enterprise budget. Code completion and next edit suggestions keep working with no budget; Copilot Chat, Copilot code review and Copilot in the cloud require available budget. Self-serve customers cannot use this model yet, GitHub says dates will follow in the coming weeks, and current self-serve subscriptions are unaffected. Copilot Business and Copilot Enterprise remain available.",
+      "impact": "Nothing changes yet for self-serve customers. Enterprises that move to this model stop paying for Copilot seats but lose the per-seat credit allowance, so <b>every chat, review and cloud request bills against the enterprise budget</b> and stops when that budget runs out.",
+      "confidence": "verified",
+      "sources": [
+        { "url": "https://github.blog/changelog/2026-10-28-github-enterprise-now-includes-access-to-github-copilot", "published": "2026-10-28" }
+      ]
+    },
+    {
+      "id": "github-copilot-fusion-discount",
+      "vendor": "GitHub Copilot",
+      "kind": "pricing",
+      "direction": "down",
+      "date": "2026-10-28",
+      "effective": null,
+      "title": "Copilot Fusion bills each model it uses at standard rates, with a temporary 30% discount on paid plans",
+      "detail": "Copilot Fusion combines multiple models per task. GitHub states that Fusion usage is billed for each model it uses, at each model's standard rate. For a limited time, users on paid Copilot plans receive a 30% discount on model costs when using Copilot Fusion. No end date for the discount is given.",
+      "impact": "On a paid plan, work routed through Fusion currently costs 30% less in model charges than the same models used directly. The discount has no published end date, and one Fusion task can bill for several models.",
+      "confidence": "verified",
+      "sources": [
+        { "url": "https://github.blog/changelog/2026-10-28-route-and-orchestrate-models-with-github-copilot-fusion", "published": "2026-10-28" }
+      ]
+    },
+    {
+      "id": "github-copilot-cloud-sandbox-billing",
+      "vendor": "GitHub Copilot",
+      "kind": "pricing",
+      "direction": "up",
+      "date": "2026-10-28",
+      "effective": null,
+      "title": "Copilot cloud sandbox usage starts billing in November 2026, drawn from a now dollar-based Actions entitlement",
+      "detail": "Copilot cloud sessions now run in cloud sandboxes by default. GitHub states that billing for cloud sandbox usage begins in November 2026 and draws from the included Actions entitlement. That entitlement changes from a fixed number of standard runner minutes to one shared, dollar-based pool covering standard GitHub-hosted runners, cloud sandboxes, and, on Team and Enterprise Cloud, larger hosted runners. Each product is deducted at its own published rate, the pool resets each billing cycle, and usage beyond it follows existing rates, budgets and payment settings. The change applies to GitHub Free, Pro, Free for organizations, Team and Enterprise Cloud. GitHub does not give an exact November date in the post.",
+      "impact": "Copilot cloud sessions and CI builds now spend the same Actions allowance. <b>Heavy cloud agent use can exhaust the allowance that used to cover builds</b>, after which builds and sessions both bill at standard rates.",
+      "confidence": "verified",
+      "sources": [
+        { "url": "https://github.blog/changelog/2026-10-28-work-from-anywhere-with-a-new-connected-copilot-cloud-experience", "published": "2026-10-28" }
+      ]
+    },
     {
       "id": "vercel-agent-sessions-cost-cut",
       "vendor": "Vercel",
