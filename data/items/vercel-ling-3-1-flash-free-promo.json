@@ -1,0 +1,15 @@
+{
+  "id": "vercel-ling-3-1-flash-free-promo",
+  "vendor": "Vercel",
+  "kind": "pricing",
+  "direction": "down",
+  "date": "2026-10-30",
+  "effective": "2026-11-03",
+  "title": "Vercel AI Gateway serves Ling 3.1 Flash 1019 free until November 3, 2026",
+  "detail": "Vercel added InclusionAI's Ling 3.1 Flash 1019 (inclusionai/ling-3.1-flash-1019) to AI Gateway, free until November 3, 2026. Free requests still appear in the spend dashboard with a full request trace. On November 3, requests begin charging at the published rate. The changelog entry does not print that rate.",
+  "impact": "Traffic routed to this model costs nothing until November 3. After that it bills at a rate the changelog does not state, so check the model page before leaving it in a production path.",
+  "confidence": "verified",
+  "sources": [
+    { "url": "https://vercel.com/changelog/ling-3-1-flash-1019-now-available-on-ai-gateway-for-free", "published": "2026-10-30" }
+  ]
+}

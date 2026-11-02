@@ -1,8 +1,54 @@
 {
   "schema": 1,
   "scope": "Pricing, credit, quota and removal changes in AI coding tools and the model APIs they bill through.",
-  "updated": "2026-10-29",
+  "updated": "2026-11-02",
   "items": [
+    {
+      "id": "vercel-ling-3-1-flash-free-promo",
+      "vendor": "Vercel",
+      "kind": "pricing",
+      "direction": "down",
+      "date": "2026-10-30",
+      "effective": "2026-11-03",
+      "title": "Vercel AI Gateway serves Ling 3.1 Flash 1019 free until November 3, 2026",
+      "detail": "Vercel added InclusionAI's Ling 3.1 Flash 1019 (inclusionai/ling-3.1-flash-1019) to AI Gateway, free until November 3, 2026. Free requests still appear in the spend dashboard with a full request trace. On November 3, requests begin charging at the published rate. The changelog entry does not print that rate.",
+      "impact": "Traffic routed to this model costs nothing until November 3. After that it bills at a rate the changelog does not state, so check the model page before leaving it in a production path.",
+      "confidence": "verified",
+      "sources": [
+        { "url": "https://vercel.com/changelog/ling-3-1-flash-1019-now-available-on-ai-gateway-for-free", "published": "2026-10-30" }
+      ]
+    },
+    {
+      "id": "vercel-data-cache-runtime-cache-billing",
+      "vendor": "Vercel",
+      "kind": "pricing",
+      "direction": "up",
+      "date": "2026-10-30",
+      "effective": "2026-11-29",
+      "title": "Vercel Data Cache moves to Runtime Cache, and previously unbilled reads and writes become billable",
+      "detail": "Data Cache is exiting beta and moving to Runtime Cache. Next.js fetch caching and unstable_cache switch over on every version without code changes. Once a team migrates, Data Cache reads and writes that were previously unbilled are charged at Runtime Cache pricing, starting at $0.40 per million read units and $4.00 per million write units, varying by region. Hobby teams get 1 million read units and 200,000 write units free each month across all projects. On Pro, usage draws from the $20 monthly infrastructure credit, then bills at regional rates. Storage rises to 8x the previous team-wide pool per project on Pro and 10x on Enterprise. Hobby teams migrate on November 29, 2026. Pro teams will be notified of their migration date. Teams created on or after October 30, 2026 use Runtime Cache by default, and opting in early applies Runtime Cache pricing immediately.",
+      "impact": "Next.js apps that lean on fetch caching or unstable_cache will start paying for cache traffic that cost nothing before. On Pro it eats into the $20 infrastructure credit first. Check Data Cache usage in Observability before the migration date, and do not opt in early unless the volume is small.",
+      "confidence": "verified",
+      "sources": [
+        { "url": "https://vercel.com/changelog/data-cache-is-moving-to-runtime-cache", "published": "2026-10-30" }
+      ]
+    },
+    {
+      "id": "anthropic-opus-4-8-fast-mode-removal",
+      "vendor": "Anthropic API",
+      "kind": "removal",
+      "direction": "neutral",
+      "date": "2026-10-30",
+      "effective": "2026-11-30",
+      "title": "Anthropic removes fast mode for Claude Opus 4.8 on November 30, 2026",
+      "detail": "Anthropic deprecated fast mode for Claude Opus 4.8 on October 30, 2026, with removal on November 30, 2026. After removal, requests to claude-opus-4-8 with speed: \"fast\" return an error. The Claude Code changelog adds that these requests do not fall back to standard Opus 4.8. Anthropic's stated migration path is Claude Opus 5.5.",
+      "impact": "Any integration sending fast mode requests to Opus 4.8 will start failing on November 30 rather than degrading. To keep the speedup, switch those calls to Opus 5.5 before then; to stay on Opus 4.8, drop the fast setting.",
+      "confidence": "verified",
+      "sources": [
+        { "url": "https://platform.claude.com/docs/en/release-notes/overview", "published": "2026-10-30" },
+        { "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md", "published": "2026-10-30" }
+      ]
+    },
     {
       "id": "openai-chatgpt-subscriber-api-credits",
       "vendor": "OpenAI API",

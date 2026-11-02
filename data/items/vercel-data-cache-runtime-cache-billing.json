@@ -1,0 +1,15 @@
+{
+  "id": "vercel-data-cache-runtime-cache-billing",
+  "vendor": "Vercel",
+  "kind": "pricing",
+  "direction": "up",
+  "date": "2026-10-30",
+  "effective": "2026-11-29",
+  "title": "Vercel Data Cache moves to Runtime Cache, and previously unbilled reads and writes become billable",
+  "detail": "Data Cache is exiting beta and moving to Runtime Cache. Next.js fetch caching and unstable_cache switch over on every version without code changes. Once a team migrates, Data Cache reads and writes that were previously unbilled are charged at Runtime Cache pricing, starting at $0.40 per million read units and $4.00 per million write units, varying by region. Hobby teams get 1 million read units and 200,000 write units free each month across all projects. On Pro, usage draws from the $20 monthly infrastructure credit, then bills at regional rates. Storage rises to 8x the previous team-wide pool per project on Pro and 10x on Enterprise. Hobby teams migrate on November 29, 2026. Pro teams will be notified of their migration date. Teams created on or after October 30, 2026 use Runtime Cache by default, and opting in early applies Runtime Cache pricing immediately.",
+  "impact": "Next.js apps that lean on fetch caching or unstable_cache will start paying for cache traffic that cost nothing before. On Pro it eats into the $20 infrastructure credit first. Check Data Cache usage in Observability before the migration date, and do not opt in early unless the volume is small.",
+  "confidence": "verified",
+  "sources": [
+    { "url": "https://vercel.com/changelog/data-cache-is-moving-to-runtime-cache", "published": "2026-10-30" }
+  ]
+}
