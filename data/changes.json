@@ -1,8 +1,24 @@
 {
   "schema": 1,
   "scope": "Pricing, credit, quota and removal changes in AI coding tools and the model APIs they bill through.",
-  "updated": "2026-11-02",
+  "updated": "2026-11-03",
   "items": [
+    {
+      "id": "gemini-2-5-pro-flash-auto-route-dec1",
+      "vendor": "Google Gemini API",
+      "kind": "removal",
+      "direction": "neutral",
+      "date": "2026-11-02",
+      "effective": "2026-12-01",
+      "title": "Gemini 2.5 Pro and 2.5 Flash requests reroute to newer models and bill at their rates from December 1, 2026",
+      "detail": "Google deprecated gemini-2.5-pro and gemini-2.5-flash on November 2, 2026, and removed both from selection in Google AI Studio. Effective December 1, 2026, API requests to gemini-2.5-pro automatically route to gemini-3.8-flash and bill at Gemini 3.8 Flash rates, and requests to gemini-2.5-flash route to gemini-3.5-flash-lite and bill at Gemini 3.5 Flash-Lite rates. Google lists breaking API changes in the move: function calling and thought_signature validation, thinking_level replacing thinking_budget, and removed sampling parameters and prefilled model turns. Paid tier standard prices per 1M tokens on the pricing page: Gemini 2.5 Pro is $1.25 input and $10.00 output for prompts up to 200k tokens. Gemini 3.8 Flash is $0.75 input and $3.75 output through December 31, 2026, rising to $1.50 input and $7.50 output starting January 1, 2027. Gemini 2.5 Flash and Gemini 3.5 Flash-Lite are both listed at $0.30 input (text, image, video) and $2.50 output.",
+      "impact": "Code still calling gemini-2.5-pro or gemini-2.5-flash will not error on December 1, but it will silently run on a different model, and the listed breaking changes can make existing requests fail or behave differently. Gemini 2.5 Pro users pay less per token on 3.8 Flash in December, but input rises above the old 2.5 Pro rate on January 1, 2027. Change the model string and test before December 1.",
+      "confidence": "verified",
+      "sources": [
+        { "url": "https://ai.google.dev/gemini-api/docs/changelog", "published": "2026-11-02" },
+        { "url": "https://ai.google.dev/gemini-api/docs/pricing", "published": "undated" }
+      ]
+    },
     {
       "id": "vercel-ling-3-1-flash-free-promo",
       "vendor": "Vercel",
