@@ -1,8 +1,23 @@
 {
   "schema": 1,
   "scope": "Pricing, credit, quota and removal changes in AI coding tools and the model APIs they bill through.",
-  "updated": "2026-11-03",
+  "updated": "2026-11-04",
   "items": [
+    {
+      "id": "vercel-security-review-billing-nov10",
+      "vendor": "Vercel",
+      "kind": "pricing",
+      "direction": "up",
+      "date": "2026-11-03",
+      "effective": "2026-11-10",
+      "title": "Vercel Security Review is free until November 10, 2026, then bills per push at the Vercel Agent rate",
+      "detail": "Vercel Security Review entered public beta for Pro and Enterprise teams on November 3, 2026. Once enabled, it reviews every push to a connected GitHub repository. It is billed at the Vercel Agent rate: provider inference at the underlying token rate with no markup, plus the Vercel Token Rate of $0.25 per million tokens (input, cached, output). Reviews are free until November 10, 2026. Fixes made with Vercel Agent are billed at the Vercel Agent rate from the start.",
+      "impact": "A team that turns Security Review on during the free week starts paying on November 10 without any further prompt. Because a review runs on every push, including direct and force pushes, cost scales with push frequency and diff size. Teams that push often should check usage before November 10 or switch it off in Agent settings.",
+      "confidence": "verified",
+      "sources": [
+        { "url": "https://vercel.com/changelog/vercel-security-review-public-beta", "published": "2026-11-03" }
+      ]
+    },
     {
       "id": "gemini-2-5-pro-flash-auto-route-dec1",
       "vendor": "Google Gemini API",
