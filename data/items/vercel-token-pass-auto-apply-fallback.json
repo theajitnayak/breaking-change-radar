@@ -1,0 +1,15 @@
+{
+  "id": "vercel-token-pass-auto-apply-fallback",
+  "vendor": "Vercel",
+  "kind": "pricing",
+  "direction": "down",
+  "date": "2026-11-06",
+  "effective": null,
+  "title": "Vercel Token Pass credit now applies to standard AI Gateway keys, with fallback to paid credits",
+  "detail": "Token Pass credit now applies automatically to included model usage through AI Gateway whether a request authenticates with an API key, an OIDC token or fx login. A dedicated Token Pass API key is no longer required. When Token Pass credit runs out for the billing period, requests from a standard key or OIDC token fall back to the team's AI Gateway credits, while Token Pass keys still stop until the next billing period. Available to Token Pass subscribers on Pro teams. Teams that created a Token Pass key during setup have to switch to a standard API key or OIDC token to get fallback.",
+  "impact": "Pro teams paying for Token Pass now use the included credit on requests that previously billed straight to AI Gateway credits, which lowers the bill. Requests on standard keys no longer stop when the credit is gone. They keep running and bill to AI Gateway credits. Teams that relied on the stop as a spending cap should stay on a Token Pass key.",
+  "confidence": "verified",
+  "sources": [
+    { "url": "https://vercel.com/changelog/token-pass-credit-now-applies-automatically-across-ai-gateway", "published": "2026-11-06" }
+  ]
+}

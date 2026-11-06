@@ -1,8 +1,54 @@
 {
   "schema": 1,
   "scope": "Pricing, credit, quota and removal changes in AI coding tools and the model APIs they bill through.",
-  "updated": "2026-11-04",
+  "updated": "2026-11-06",
   "items": [
+    {
+      "id": "vercel-token-pass-auto-apply-fallback",
+      "vendor": "Vercel",
+      "kind": "pricing",
+      "direction": "down",
+      "date": "2026-11-06",
+      "effective": null,
+      "title": "Vercel Token Pass credit now applies to standard AI Gateway keys, with fallback to paid credits",
+      "detail": "Token Pass credit now applies automatically to included model usage through AI Gateway whether a request authenticates with an API key, an OIDC token or fx login. A dedicated Token Pass API key is no longer required. When Token Pass credit runs out for the billing period, requests from a standard key or OIDC token fall back to the team's AI Gateway credits, while Token Pass keys still stop until the next billing period. Available to Token Pass subscribers on Pro teams. Teams that created a Token Pass key during setup have to switch to a standard API key or OIDC token to get fallback.",
+      "impact": "Pro teams paying for Token Pass now use the included credit on requests that previously billed straight to AI Gateway credits, which lowers the bill. Requests on standard keys no longer stop when the credit is gone. They keep running and bill to AI Gateway credits. Teams that relied on the stop as a spending cap should stay on a Token Pass key.",
+      "confidence": "verified",
+      "sources": [
+        { "url": "https://vercel.com/changelog/token-pass-credit-now-applies-automatically-across-ai-gateway", "published": "2026-11-06" }
+      ]
+    },
+    {
+      "id": "openai-gpt-5-5-cyber-preview-removal",
+      "vendor": "OpenAI",
+      "kind": "removal",
+      "direction": "neutral",
+      "date": "2026-11-05",
+      "effective": "2027-02-01",
+      "title": "OpenAI removes gpt-5.5-cyber-preview from the API on February 1, 2027",
+      "detail": "A deprecation entry dated 2026-11-05 states that the gpt-5.5-cyber-preview model is deprecated and will be removed from the API on February 1, 2027. The listed replacement is not a named model but \"the most capable cyber model available to you\". The same day, the API changelog announced gpt-6-cyber. OpenAI's deprecations page says preview models may be retired with shorter notice than generally available models.",
+      "impact": "Security teams calling gpt-5.5-cyber-preview lose it on February 1, 2027. The replacement depends on which cyber models the organization has been granted access to, so check access to gpt-6-cyber and re-test vulnerability workflows on it before the shutdown date.",
+      "confidence": "verified",
+      "sources": [
+        { "url": "https://developers.openai.com/api/docs/deprecations", "published": "2026-11-05" },
+        { "url": "https://developers.openai.com/api/docs/changelog", "published": "2026-11-05" }
+      ]
+    },
+    {
+      "id": "gemini-omni-1-1-flash-auto-route-dec3",
+      "vendor": "Google Gemini API",
+      "kind": "removal",
+      "direction": "down",
+      "date": "2026-11-05",
+      "effective": "2026-12-03",
+      "title": "Gemini Omni 1.1 Flash requests reroute to Omni 1.2 Flash and bill at its rates from December 3, 2026",
+      "detail": "The Gemini API release notes for November 5, 2026 state that effective December 3, 2026, API requests to gemini-omni-1.1-flash will automatically route to gemini-omni-1.2-flash at Gemini Omni 1.2 Flash rates. The same entry releases Gemini Omni 1.2 Flash as generally available with 30% lower video output pricing, listed at $12.00 per 1M tokens, and doubled paid-tier rate limits.",
+      "impact": "Video generation code still calling gemini-omni-1.1-flash keeps working after December 3 but runs on a different model. Google lists the new model's video output price as 30% lower and its paid-tier rate limits as doubled. Output can differ between versions, so switch the model string and test before December 3.",
+      "confidence": "verified",
+      "sources": [
+        { "url": "https://aistudio.google.com/docs/changelog", "published": "2026-11-05" }
+      ]
+    },
     {
       "id": "vercel-security-review-billing-nov10",
       "vendor": "Vercel",

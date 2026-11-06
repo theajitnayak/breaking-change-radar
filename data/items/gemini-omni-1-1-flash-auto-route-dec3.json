@@ -1,0 +1,15 @@
+{
+  "id": "gemini-omni-1-1-flash-auto-route-dec3",
+  "vendor": "Google Gemini API",
+  "kind": "removal",
+  "direction": "down",
+  "date": "2026-11-05",
+  "effective": "2026-12-03",
+  "title": "Gemini Omni 1.1 Flash requests reroute to Omni 1.2 Flash and bill at its rates from December 3, 2026",
+  "detail": "The Gemini API release notes for November 5, 2026 state that effective December 3, 2026, API requests to gemini-omni-1.1-flash will automatically route to gemini-omni-1.2-flash at Gemini Omni 1.2 Flash rates. The same entry releases Gemini Omni 1.2 Flash as generally available with 30% lower video output pricing, listed at $12.00 per 1M tokens, and doubled paid-tier rate limits.",
+  "impact": "Video generation code still calling gemini-omni-1.1-flash keeps working after December 3 but runs on a different model. Google lists the new model's video output price as 30% lower and its paid-tier rate limits as doubled. Output can differ between versions, so switch the model string and test before December 3.",
+  "confidence": "verified",
+  "sources": [
+    { "url": "https://aistudio.google.com/docs/changelog", "published": "2026-11-05" }
+  ]
+}
