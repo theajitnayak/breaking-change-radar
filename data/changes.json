@@ -1,8 +1,23 @@
 {
   "schema": 1,
   "scope": "Pricing, credit, quota and removal changes in AI coding tools and the model APIs they bill through.",
-  "updated": "2026-11-06",
+  "updated": "2026-11-07",
   "items": [
+    {
+      "id": "vercel-tracing-ga-retention",
+      "vendor": "Vercel",
+      "kind": "limit",
+      "direction": "down",
+      "date": "2026-11-06",
+      "effective": null,
+      "title": "Vercel Tracing reaches general availability with longer trace retention on every plan",
+      "detail": "Vercel Tracing is generally available on all plans, and Vercel states pricing is unchanged from the beta. Trace retention no longer follows runtime log retention: Hobby keeps traces for 3 days instead of 1 hour, Pro for 14 days instead of 1 day, and Enterprise for 14 days instead of 3 days. New projects on Next.js 16.5 or later with at least one Node.js function get tracing turned on after their first successful build, with one sampling rule tracing 100% of requests in all environments. Removing all sampling rules in Settings, Tracing opts out.",
+      "impact": "Existing teams keep traces longer at the same price. New Next.js 16.5 projects now collect traces for every request by default, so check the sampling rule on new projects if you want to limit trace collection.",
+      "confidence": "verified",
+      "sources": [
+        { "url": "https://vercel.com/changelog/vercel-tracing-is-now-generally-available", "published": "2026-11-06" }
+      ]
+    },
     {
       "id": "vercel-token-pass-auto-apply-fallback",
       "vendor": "Vercel",
@@ -16,6 +31,21 @@
       "confidence": "verified",
       "sources": [
         { "url": "https://vercel.com/changelog/token-pass-credit-now-applies-automatically-across-ai-gateway", "published": "2026-11-06" }
+      ]
+    },
+    {
+      "id": "gemini-embedding-2-preview-route-nov6",
+      "vendor": "Google Gemini API",
+      "kind": "removal",
+      "direction": "neutral",
+      "date": "2026-11-06",
+      "effective": "2026-11-06",
+      "title": "Gemini Embedding 2 Preview deprecated; requests route to gemini-embedding-2 from November 6, 2026",
+      "detail": "The Gemini API release notes for November 6, 2026 state that gemini-embedding-2-preview is deprecated. Effective November 6, 2026, API requests to gemini-embedding-2-preview route to gemini-embedding-2 at Gemini Embedding 2 rates. Google states that gemini-embedding-2 uses the same API schema, pricing and embedding space, so no other code changes or vector re-indexing are needed.",
+      "impact": "Calls to gemini-embedding-2-preview keep working but are already served by gemini-embedding-2 at the same price. Existing vectors stay compatible. Change the model string to gemini-embedding-2 so the code does not depend on the preview alias.",
+      "confidence": "verified",
+      "sources": [
+        { "url": "https://aistudio.google.com/docs/changelog", "published": "2026-11-06" }
       ]
     },
     {

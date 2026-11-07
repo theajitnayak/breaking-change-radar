@@ -1,0 +1,15 @@
+{
+  "id": "vercel-tracing-ga-retention",
+  "vendor": "Vercel",
+  "kind": "limit",
+  "direction": "down",
+  "date": "2026-11-06",
+  "effective": null,
+  "title": "Vercel Tracing reaches general availability with longer trace retention on every plan",
+  "detail": "Vercel Tracing is generally available on all plans, and Vercel states pricing is unchanged from the beta. Trace retention no longer follows runtime log retention: Hobby keeps traces for 3 days instead of 1 hour, Pro for 14 days instead of 1 day, and Enterprise for 14 days instead of 3 days. New projects on Next.js 16.5 or later with at least one Node.js function get tracing turned on after their first successful build, with one sampling rule tracing 100% of requests in all environments. Removing all sampling rules in Settings, Tracing opts out.",
+  "impact": "Existing teams keep traces longer at the same price. New Next.js 16.5 projects now collect traces for every request by default, so check the sampling rule on new projects if you want to limit trace collection.",
+  "confidence": "verified",
+  "sources": [
+    { "url": "https://vercel.com/changelog/vercel-tracing-is-now-generally-available", "published": "2026-11-06" }
+  ]
+}
